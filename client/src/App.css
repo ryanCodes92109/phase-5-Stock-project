@@ -29,3 +29,18 @@ code {
   width: 15vw;
   height: 25vh;
 }
+
+.signupFormParent, .loginFormParent {
+  display:flex;
+  align-items: center;
+
+}
+
+.signupForm, .loginForm {
+  border: solid 5px black;
+  width:15vw;
+  height:25vh;
+  margin:auto;
+
+}
+
