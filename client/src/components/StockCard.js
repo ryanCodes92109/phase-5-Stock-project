@@ -1,19 +1,17 @@
 import React from 'react'
-import Stocks from './Stocks'
 
-const StockCard = ({stock}) => {
+const StockCard = ({name, price}) => {
+    console.log(name)
+    console.log(price)
 
-    const mappedStocks = stock.map(singleStock => (
-        <Stocks 
-            key = {singleStock.id} 
-            name = {singleStock.name}
-            />))
 
 
   return (
-    <div>
-      {mappedStocks}
-    </div>
+    
+        <div className='stockCard'>
+            {name} <br/>
+            {price}
+        </div>
   )
 }
 

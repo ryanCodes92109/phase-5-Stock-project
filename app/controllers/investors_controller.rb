@@ -1,5 +1,5 @@
 class InvestorsController < ApplicationController
-    before_action :find_investor, onlty: [:show, :destroy]
+    before_action :find_investor, only: [:show, :destroy, :update]
 
     def index 
         render json: Investor.all
@@ -20,7 +20,8 @@ class InvestorsController < ApplicationController
     end
 
     def update
-        @investor.update!(investor_params), status: :ok
+        @investor.update!(investor_params)
+        render json: @investor, status: :ok
     end
 
     private
