@@ -1,7 +1,8 @@
 class FavoritesController < ApplicationController
     before_action :find_favorite, only: [:show, :destroy]
+
     def index
-        render json:Favorite.all
+        render json: Favorite.all
     end
 
     def show
@@ -14,11 +15,13 @@ class FavoritesController < ApplicationController
     end
 
     def update
-        @favorite.update!(favorites), status: :ok
+        @favorite.update!(favorite_params)
+        render json: @favorite, status: :ok
     end
 
     def create
-        Favorite.create!(favorite_params), status: :created
+       newFavorite =  Favorite.create!(favorite_params)
+       render json: newFavorite, status: :created
     end
 
     private

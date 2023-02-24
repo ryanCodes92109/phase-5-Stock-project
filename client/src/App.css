@@ -16,10 +16,12 @@ code {
 .stockCardParent {
   display:flex;
   height:50vh;
-  width:50vw;
-  overflow:scroll;
+  width:80vw;
+  overflow:wrap;
   order:5;
   justify-content: space-around;
+  flex-wrap: wrap;
+  margin:auto;
 }
 
 .stockCard {
