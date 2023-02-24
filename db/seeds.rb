@@ -18,7 +18,7 @@ Investor.create(first_name:"Ryan", last_name: "Sullivan", email:"ryan@gmail.com"
     end
 
 20.times do
-Stock.create(name: Faker::Company.name)
+Stock.create(name: Faker::Company.name, current_price: Faker::Number.digit)
 end
 
 5.times do
@@ -31,3 +31,4 @@ Portfolio.create(quantity:Faker::Number.positive(from:1, to: 100))
 
 PortfolioStock.create(portfolio_id: Portfolio.all.sample, stock_id: Stock.all.sample)
 
+puts "Done!"
