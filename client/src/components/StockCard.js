@@ -1,9 +1,6 @@
 import React from 'react'
 
 const StockCard = ({name, price}) => {
-    console.log(name)
-    console.log(price)
-
 
 
   return (

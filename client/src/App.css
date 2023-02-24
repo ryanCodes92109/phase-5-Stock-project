@@ -44,3 +44,19 @@ code {
 
 }
 
+.navbarParent {
+  display:flex;
+  border:5px solid black;
+  height:15vh;
+  width:85vw;
+  background-color: antiquewhite;
+  list-style:none;
+  justify-content: right;
+  gap:1vw;
+  margin:auto;
+}
+
+.navButton {
+  border  :1px solid red;
+  margin:auto;
+}

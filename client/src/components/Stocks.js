@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import StockCard from './StockCard'
+import { UserContext } from '../context/UserContext'
 
 const Stocks = () => {
-    const [stock, setStock] = useState([])
+
+    const{stock, setStock} = useContext(UserContext)
 
     useEffect(() => {
         fetch('/stocks')
         .then(res => res.json())
         .then(data => setStock(data))
-    }, [])
-    console.log(stock)
+    }, [setStock])
+
+    // console.log(stock)
 
     const mappedStocks = stock.map(singleStock => (
         <StockCard 
