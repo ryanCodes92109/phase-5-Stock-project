@@ -3,20 +3,33 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 
 const Login = () => {
-    const {investor} = useContext(UserContext)
+    const {investor, setInvestor} = useContext(UserContext)
+
     const loginFormData = {
         email:'',
         password: ''
     }
 
+    
 
     const loginSubmit = e => {
         e.preventDefault()
         // console.log('submit')
-        fetch('/signin', {
+        fetch('/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(investor)
+        })
+        .then(res => {
+            if(res.ok) {
+                res.json()
+                .then(setInvestor)
+                console.log("Working?")
+            } 
+            // else {
+            //     res.json()
+            //     .then(e => setErrors())
+            // }
         })
     }
 
