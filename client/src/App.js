@@ -1,5 +1,5 @@
 import './App.css';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Stocks from './components/Stocks';
@@ -10,6 +10,16 @@ import { UserContext } from './context/UserContext';
 
 function App() {
   const {investor, setInvestor} = useContext(UserContext)
+
+  useEffect(() => {
+    fetch('/authorized_investor')
+    .then(res => {
+      if(res.status === 200) {
+        res.json()
+        .then(user=> setInvestor(user))
+      }
+    })
+  }, [])
 
   if(!investor) return <Login setCurrentUser = {setInvestor} />
 

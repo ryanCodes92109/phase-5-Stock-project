@@ -10,15 +10,7 @@ const UserProvider = ({children}) => {
     // user state for auth
     const [investor, setInvestor] = useState()
     
-  useEffect(() => {
-    fetch('/authorized_investor')
-    .then(res => {
-      if(res.ok) {
-        res.json()
-        .then(user=> setInvestor(user))
-      }
-    })
-  }, [])
+  
 
 
   return (

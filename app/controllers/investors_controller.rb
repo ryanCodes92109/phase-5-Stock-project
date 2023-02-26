@@ -6,11 +6,12 @@ class InvestorsController < ApplicationController
     end
 
     def show
-        render json: @investor, status: :ok
+        render json: @user, status: :ok
     end
 
     def create
         new_investor = Investor.create!(investor_params)
+        session[:investor_id] = new_investor.id
         render json: new_investor, status: :created
     end
 

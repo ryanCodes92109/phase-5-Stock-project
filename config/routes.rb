@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#login"
 
-  post "/authorized_investor", to: "investor#show"
+  # get "/authorized_investor", to: "investors#show"
 end
