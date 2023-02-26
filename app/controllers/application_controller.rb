@@ -5,8 +5,13 @@ class ApplicationController < ActionController::API
     before_action :authorized_investor
 
     def authorized_investor
-      return render json: {error: "Not Authorized"}, status: :unauthorized
+      return render json: {error: "No mothafucka"}, status: :unauthorized
       unless session.include? :investor_id
+    end
+  end
+
+    def current_investor
+
     end
 
 

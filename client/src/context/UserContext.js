@@ -1,25 +1,34 @@
 import React, {useEffect, useState, createContext} from 'react'
+import Login from '../components/Login'
 
 const UserContext = createContext()
 
 const UserProvider = ({children}) => {
     // state for mapping and all stocks
     const [stock, setStock] = useState([])
+
     // user state for auth
-    const [investor, setInvestor] = useState('')
-
-
+    const [investor, setInvestor] = useState()
+    
+  useEffect(() => {
+    fetch('/authorized_investor')
+    .then(res => {
+      if(res.ok) {
+        res.json()
+        .then(user=> setInvestor(user))
+      }
+    })
+  }, [])
 
 
   return (
     <div>
-        <UserContext.Provider value=
-        {   {
-                stock,
-                setStock, 
-                investor,
-                setInvestor
-            }
+        <UserContext.Provider value={   
+          { stock,
+            setStock, 
+            investor,
+            setInvestor
+          }
         }>
             {children}
         </UserContext.Provider>

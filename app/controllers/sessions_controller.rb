@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
                 render json: user, status: :ok
                 else 
                     render json: {error: "Check your username and password and try again."}
+                end
             
-            end
         
     end
 

@@ -3,33 +3,35 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 
 const Login = () => {
-    const {investor, setInvestor} = useContext(UserContext)
+    const {
+        setInvestor
+        } = useContext(UserContext)
 
     const loginFormData = {
         email:'',
         password: ''
     }
 
-    
-
-    const loginSubmit = e => {
+    const loginSubmit = (e, loginFormData) => {
         e.preventDefault()
         // console.log('submit')
         fetch('/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(investor)
+            body: JSON.stringify(loginFormData)
         })
         .then(res => {
-            if(res.ok) {
+            if(res.status === 200) {
                 res.json()
-                .then(setInvestor)
+                .then(userObj => {
+                    setInvestor(userObj)
+                })
                 console.log("Working?")
             } 
-            // else {
-            //     res.json()
-            //     .then(e => setErrors())
-            // }
+            else {
+                res.json()
+                .then(e => console.log("NOT TADAY"))
+            }
         })
     }
 
