@@ -17,7 +17,8 @@ const Favorites = ({userFavorites}) => {
           key={singleFavorite.id}
           stockName={singleFavorite.name}  
           stockPrice={singleFavorite.current_price}/>
-    ))
+      )
+    )
 
   return (
     <div className='favoriteCardParent'>

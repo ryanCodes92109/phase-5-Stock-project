@@ -5,44 +5,94 @@ import Signup from './Signup'
 import Login from './Login'
 
 const Account = () => {
-    const {investor, toggleAuth, setToggleAuth} = useContext(UserContext)
+    const {
+        investor, 
+        setInvestor, 
+        toggleAuth, 
+        setToggleAuth
+            } = useContext(UserContext)
+
+    console.log(investor)
+    const [patchFormValues, setPatchFormValues] = useState({
+        first_name: investor.first_name,
+        last_name: investor.last_name,
+        email: investor.email
+    })
+
+    const  accountPatchFormChange = (e) => {
+        const {name, value} = e.target;
+        setPatchFormValues((oldValues) => ({ ...oldValues, [name]: value }))
+    };
 
     const accountSubmitForm = e => {
         e.preventDefault()
         console.log('patch form')
-    }
-
-    const handlePatchFormUpdateButton = e => {
-        console.log('Hello')
-    }
+        fetch(`/investors/${investor.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type":"application/json",
+            },
+            body: JSON.stringify(patchFormValues),
+        })
+        .then (res => {
+            console.log(res.json())
+        })
+        .then(setInvestor(patchFormValues))
+            setPatchFormValues(patchFormValues)
+        }
 
     if(!investor) {
         return (
             toggleAuth && <Login setToggleAuth={setToggleAuth} />) || ( <Signup setToggleAuth={setToggleAuth} />)
-        
     }
+
+    const investorDelete = e => {
+        fetch(`/investors/${investor.id}`, {
+            method: "DELETE",
+        })
+        .then(res => {
+            if(res.status === 204) {
+                setInvestor(null)
+                console.log(res)
+            } else {
+                alert(res)
+            }
+        })
+    }
+
   return (
     <div className='changeAccountInfoParent'>
       <form onSubmit={accountSubmitForm}>
 
         <input
             placeholder='First Name'
-            
-            ></input>
+            name='first_name'
+            value={patchFormValues.first_name}
+            onChange = {accountPatchFormChange}
+            />
         <input 
             placeholder='Last Name'
-            
-            ></input>
+            name='last_name'
+            value={patchFormValues.last_name}
+            onChange = {accountPatchFormChange}
+
+            />
         <input 
             placeholder='Email'
-            
-            ></input><br/>
+            name='email'
+            value={patchFormValues.email}
+            onChange = {accountPatchFormChange}
+            />
+                
+            <br/>
             <button
-                onClick= {handlePatchFormUpdateButton}
                 className='changeAccountInfoButton'
+                type='submit'
             >Update</button>
+            
             <button
                 className='changeAccountInfoButton' 
+                onClick = {investorDelete}
             >Delete Account</button>
       </form>
     </div>

@@ -25,7 +25,7 @@ const UserProvider = ({children}) => {
       })
     }
 
-    console.log(investor)
+    // console.log(investor)
 
   useEffect(() => {
     fetch('/favorites')

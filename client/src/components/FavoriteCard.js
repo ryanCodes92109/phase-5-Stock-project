@@ -6,6 +6,8 @@ const FavoriteCard = ({stockName, stockPrice}) => {
       {stockName} 
       <br/>
       ${stockPrice}/ per share
+      <br />
+      <button>Remove </button>
     </div>
   )
 }
