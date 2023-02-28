@@ -1,9 +1,11 @@
 import React from 'react'
 
-const FavoriteCard = () => {
+const FavoriteCard = ({stockName, stockPrice}) => {
   return (
-    <div>
-      
+    <div className='favoriteCard'>
+      {stockName} 
+      <br/>
+      ${stockPrice}/ per share
     </div>
   )
 }

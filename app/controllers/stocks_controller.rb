@@ -1,7 +1,6 @@
 class StocksController < ApplicationController
     before_action :find_stock, only: [:show]
 
-
     def index 
         render json: Stock.all
     end

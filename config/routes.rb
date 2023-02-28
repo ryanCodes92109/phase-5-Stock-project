@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
+  resources :sessions
   resources :favorites
   resources :stocks
   resources :investors
   resources :portfolios
   resources :portfolio_stocks
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-
-
-
+  post "/login", to: "sessions#login"
+  delete '/logout', to: "sessions#logout"
+  get "/authorized_investor", to: "investors#show"
 end
