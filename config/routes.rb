@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#login"
   delete '/logout', to: "sessions#logout"
   get "/authorized_investor", to: "investors#show"
+  
 end

@@ -8,6 +8,8 @@ const UserProvider = ({children}) => {
     // state for mapping and all stocks
     const [stock, setStock] = useState([])
     const [favorite, setFavorite] = useState([])
+    const [toggleAuth, setToggleAuth] = useState(false)
+
     // user state for auth
     const [investor, setInvestor] = useState(null)
     
@@ -25,42 +27,11 @@ const UserProvider = ({children}) => {
 
     console.log(investor)
 
-  // const loginSubmit = (e, loginFormData) => {
-  //     e.preventDefault()
-  //     // console.log('submit')
-  //     fetch('/login', {
-  //         method: 'POST',
-  //         headers: {'Content-Type': 'application/json'},
-  //         body: JSON.stringify(loginFormData)
-  //     })
-  //     .then(res => {
-  //         if(res.status === 200) {
-  //             res.json()
-  //             .then(userObj => {
-  //                 setInvestor(userObj)
-  //                 navigate('/stocks')
-  //             })
-  //             console.log("Working?")
-  //         } 
-  //         else {
-  //             res.json()
-  //             .then(e => console.log("NOT TADAY"))
-  //         }
-  //     })
-  // }
-
-
   useEffect(() => {
     fetch('/favorites')
     .then(res => res.json())
     .then(data => setFavorite(data))
   }, [])
-
-//   const fetchFavorites= () => {
-//     fetch('/favorites')
-//     .then(res => res.json())
-//     .then(data => setFavorite(data))
-// }
 
   return (
     <div>
@@ -73,7 +44,9 @@ const UserProvider = ({children}) => {
             fetchAuthorizedUser,
             // fetchFavorites,
             favorite,
-            setFavorite
+            setFavorite, 
+            toggleAuth,
+            setToggleAuth
           }
         }>
             {children}

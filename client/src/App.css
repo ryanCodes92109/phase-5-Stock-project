@@ -56,3 +56,12 @@ code {
   height:25vh;
   margin:auto;
 }
+
+.changeAccountInfoParent {
+  border: 5px solid black;
+  height:25vh;
+  width:15vw;
+  margin:auto;
+  position:relative;
+  top:20vh;
+}

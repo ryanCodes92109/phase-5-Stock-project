@@ -29,4 +29,4 @@
 /config/master.key
 
 # Ignore stock API Key
-/.env
+.env
