@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Stocks from './components/Stocks';
 import Login from './components/Login';
 import Favorites from './components/Favorites';
+import Account from './components/Account';
 import Signup from './components/Signup';
 import { UserContext } from './context/UserContext';
 // import API_KEY from '.src/.env'
@@ -36,7 +37,7 @@ function App() {
         <Routes>
           <Route 
             path='/' 
-            element={<Login />}
+            element={<Account />}
           />
           <Route 
             path='/stocks' 
@@ -44,7 +45,7 @@ function App() {
           />
           <Route 
             path='/favorites' 
-            element={ <Favorites /> }
+            element={ <Favorites userFavorites={investor.favorites}/> }
           />
           <Route 
             path='/login'

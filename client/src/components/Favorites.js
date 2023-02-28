@@ -2,20 +2,21 @@ import React, {useState, useEffect, useContext} from 'react'
 import { UserContext } from '../context/UserContext'
 import FavoriteCard from './FavoriteCard'
 
-const Favorites = () => {
+const Favorites = ({userFavorites}) => {
 
-  const {favorite} = useContext(UserContext)
+  const {investor, favorite} = useContext(UserContext)
 
     
     // fetchFavorites()
 
-    console.log(favorite)
+    // console.log(favorite)
+    console.log(userFavorites)
 
-    const mappedFavorites = favorite.map(singleFavorite => (
+    const mappedFavorites = userFavorites.map(singleFavorite => (
         <FavoriteCard 
           key={singleFavorite.id}
-          stockName={singleFavorite.stock.name}  
-          stockPrice={singleFavorite.stock.current_price}/>
+          stockName={singleFavorite.name}  
+          stockPrice={singleFavorite.current_price}/>
     ))
 
   return (

@@ -40,8 +40,8 @@ Investor.create(first_name:"Ryan", last_name: "Sullivan", email:"ryan@gmail.com"
     Investor.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 'password')
     end
 
-5.times do
-    Favorite.create(investor_id: Investor.all.sample, stock_id:Stock.all.sample)
+25.times do
+    Favorite.create(investor_id: Investor.all.sample.id, stock_id:Stock.all.sample.id)
 end
 
 Portfolio.create(quantity:Faker::Number.positive(from:1, to: 100))

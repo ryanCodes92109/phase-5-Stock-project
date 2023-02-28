@@ -25,6 +25,7 @@ const Stocks = () => {
   return (
     <div className='stockCardParent'>       
         {mappedStocks}
+        
     </div>
   )
 }
