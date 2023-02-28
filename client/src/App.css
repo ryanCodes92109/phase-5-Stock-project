@@ -13,27 +13,9 @@ code {
     monospace;
 }
 
-.stockCardParent {
-  display:flex;
-  height:50vh;
-  width:80vw;
-  overflow:wrap;
-  order:5;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin:auto;
-}
-
-.stockCard {
-  border:5px solid black;
-  width: 15vw;
-  height: 25vh;
-}
-
 .signupFormParent, .loginFormParent {
   display:flex;
   align-items: center;
-
 }
 
 .signupForm, .loginForm {
@@ -41,7 +23,6 @@ code {
   width:15vw;
   height:25vh;
   margin:auto;
-
 }
 
 .navbarParent {
@@ -58,5 +39,20 @@ code {
 
 .navButton {
   border  :1px solid red;
+  margin:auto;
+}
+
+.favoriteCardParent, .stockCardParent {
+  display:flex;
+  flex-wrap: wrap;
+  width:50vw;
+  margin:auto;
+  gap:3vh;
+}
+
+.favoriteCard, .stockCard {
+  border: solid 5px black;
+  width:10vw;
+  height:25vh;
   margin:auto;
 }

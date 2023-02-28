@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :portfolio_stocks
 
   post "/login", to: "sessions#login"
-
-  # get "/authorized_investor", to: "investors#show"
+  delete '/logout', to: "sessions#logout"
+  get "/authorized_investor", to: "investors#show"
 end

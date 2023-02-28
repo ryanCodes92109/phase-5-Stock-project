@@ -1,8 +1,9 @@
 class InvestorsController < ApplicationController
-    before_action :find_investor, only: [:show, :destroy, :update]
+    # before_action :find_investor, only: [:show, :destroy, :update]
+    skip_before_action :authorized_investor, only: [:create]
 
     def index 
-        render json: Investor.all
+        render json: Investor.all, status: :ok
     end
 
     def show
@@ -16,12 +17,12 @@ class InvestorsController < ApplicationController
     end
 
     def destroy
-        @investor.destroy
-        head :no_content
+        @user.destroy
+        head :no_content, status: 204
     end
 
     def update
-        @investor.update!(investor_params)
+        @user.update!(investor_params)
         render json: @investor, status: :ok
     end
 

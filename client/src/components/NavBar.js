@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom'
 
 
 const NavBar = () => {
+
+  const handleLogout = e => {
+    console.log('click')
+    // fetch('/logout')
+  }
+
   return (
     <div className='navbarParent'>
     <Link to='/'>
@@ -24,6 +30,7 @@ const NavBar = () => {
     <Link>
         <li 
             className='navButton'
+            onClick={handleLogout}
             >Logout</li>
     </Link>
     </div>

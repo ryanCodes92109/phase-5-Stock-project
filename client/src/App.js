@@ -7,19 +7,26 @@ import Login from './components/Login';
 import Favorites from './components/Favorites';
 import Signup from './components/Signup';
 import { UserContext } from './context/UserContext';
+// import API_KEY from '.src/.env'
 
 function App() {
-  const {investor, setInvestor} = useContext(UserContext)
+  const {
+    investor, 
+    setInvestor,
+    fetchAuthorizedUser
+    
+    } = useContext(UserContext)
 
-  useEffect(() => {
-    fetch('/authorized_investor')
-    .then(res => {
-      if(res.status === 200) {
-        res.json()
-        .then(user=> setInvestor(user))
-      }
-    })
-  }, [])
+    useEffect(() => {
+      fetchAuthorizedUser()
+    }, [])
+
+    // const fetchData = e => {
+    //   fetch('https://financialmodelingprep.com/api/v3/quote-short/Z?apikey=8d97f878401bfb5f3a62d0aa5175f4e0')
+    //   .then(res => res.json())
+    //   .then(data => console.log(data))
+    // }
+    // fetchData()
 
   if(!investor) return <Login setCurrentUser = {setInvestor} />
 

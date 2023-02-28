@@ -2,17 +2,22 @@ class ApplicationController < ActionController::API
     include ActionController::Cookies
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
     rescue_from ActiveRecord::RecordInvalid, with: :invalid
-    # before_action :authorized_investor
+    before_action :authorized_investor
 
-    def authorized_investor
-       render json: {error: "No ones home!"}, status: :unauthorized
-      unless current_investor
-    end
-  end
 
     def current_investor
-      @user ||= Investor.find_by(id:session[:investor_id]) if session[:user_id]
+      # byebug
+      @user ||= Investor.find_by(id: session[:user_id]) #if session[:user_id]
+      # byebug
     end
+
+    def authorized_investor
+       render json: {errors: "No ones home!"}, status: :unauthorized unless current_investor
+      
+    end
+  
+
+    
 
 
 

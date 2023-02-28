@@ -43,8 +43,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_025921) do
 
   create_table "portfolios", force: :cascade do |t|
     t.integer "quantity"
+    t.bigint "investor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["investor_id"], name: "index_portfolios_on_investor_id"
   end
 
   create_table "sessions", force: :cascade do |t|
