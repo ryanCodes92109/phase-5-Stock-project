@@ -22,8 +22,7 @@ class InvestorsController < ApplicationController
     end
 
     def update
-        @user.update!(investor_params)
-        render json: @investor, status: :ok
+       render json: @user.update!(investor_params), status: :ok
     end
 
     private
