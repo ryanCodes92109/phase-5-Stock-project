@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../styled components/Button.style'
 
 const FavoriteCard = ({stockName, stockPrice}) => {
   return (
@@ -7,7 +8,7 @@ const FavoriteCard = ({stockName, stockPrice}) => {
       <br/>
       ${stockPrice}/ per share
       <br />
-      <button>Remove </button>
+      <Button>Remove </Button>
     </div>
   )
 }

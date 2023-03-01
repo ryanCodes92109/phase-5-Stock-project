@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { UserContext } from '../context/UserContext'
 import FavoriteCard from './FavoriteCard'
+import Button from '../styled components/Button.style'
 
 const Favorites = ({userFavorites}) => {
 
@@ -10,7 +11,7 @@ const Favorites = ({userFavorites}) => {
     // fetchFavorites()
 
     // console.log(favorite)
-    console.log(userFavorites)
+    // console.log(userFavorites)
 
     const mappedFavorites = userFavorites.map(singleFavorite => (
         <FavoriteCard 

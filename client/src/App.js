@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import { useContext, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
@@ -9,7 +9,7 @@ import Account from './components/Account';
 import Signup from './components/Signup';
 import Portfolio from './components/Portfolio';
 import { UserContext } from './context/UserContext';
-import 'semantic-ui-css/semantic.min.css'
+import { AppContainer } from './styled components/AppContainer.style';
 
 // import API_KEY from '.src/.env'
 
@@ -27,17 +27,12 @@ function App() {
       fetchAuthorizedUser()
     }, [])
 
-    // const fetchData = e => {
-    //   fetch('https://financialmodelingprep.com/api/v3/quote-short/Z?apikey=8d97f878401bfb5f3a62d0aa5175f4e0')
-    //   .then(res => res.json())
-    //   .then(data => console.log(data))
-    // }
-    // fetchData()
+
 
   if(!investor) return <Login setCurrentUser = {setInvestor} />
 
   return (
-    <div className="App">
+    <AppContainer>
       <NavBar /> 
         <Routes>
           <Route 
@@ -69,7 +64,7 @@ function App() {
             element={ <Signup />  }
           />
         </Routes >
-    </div>
+    </AppContainer>
   );
 }
 

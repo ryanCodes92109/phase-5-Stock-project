@@ -1,7 +1,8 @@
 import React, {useContext} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
-
+import { NavLink } from '../styled components/Link.style'
+import { NavBarContainer } from '../styled components/NavBar.style'
 
 const NavBar = () => {
   const {setInvestor} = useContext(UserContext)
@@ -22,34 +23,37 @@ const NavBar = () => {
 
   return (
     <div className='navbarParent'>
-    <Link to='/'>
-        <li 
-            className='navButton'
-            >Home</li>
-    </Link>
+      <NavBarContainer>
+      <NavLink 
+      to='/'>
+          <li 
+              className='navButton'
+              >Home</li>
+      </NavLink>
 
-    <Link to='portfolio'>
-      <li 
-        className='navButton'
-      >My Portfolio</li>
-    </Link>
-    <Link to='stocks'>
+      <NavLink to='portfolio'>
         <li 
-            className='navButton'
-            >Stocks</li>
-    </Link>
-    <Link to='/favorites'>
-        <li 
-            className='navButton'
-            >Favorites</li>
-    </Link>
+          className='navButton'
+        >My Portfolio</li>
+      </NavLink>
+      <NavLink to='stocks'>
+          <li 
+              className='navButton'
+              >Stocks</li>
+      </NavLink>
+      <NavLink to='/favorites'>
+          <li 
+              className='navButton'
+              >Favorites</li>
+      </NavLink>
 
-    <Link>
-        <li 
-            className='navButton'
-            onClick={handleLogout}
-            >Logout</li>
-    </Link>
+      <NavLink>
+          <li 
+              className='navButton'
+              onClick={handleLogout}
+              >Logout</li>
+      </NavLink>
+    </NavBarContainer>
     </div>
   )
 }
