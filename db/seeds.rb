@@ -44,9 +44,15 @@ Investor.create(first_name:"Ryan", last_name: "Sullivan", email:"ryan@gmail.com"
     Favorite.create(investor_id: Investor.all.sample.id, stock_id:Stock.all.sample.id)
 end
 
-Portfolio.create(investor_id: Investor.all.sample.id, quantity:Faker::Number.positive(from:1, to: 100))
 Portfolio.create(investor_id: 1, quantity:Faker::Number.positive(from:1, to: 20))
+Portfolio.create(investor_id: Investor.all.sample.id, quantity:Faker::Number.positive(from:1, to: 100))
 
-PortfolioStock.create(portfolio_id: Portfolio.all.sample.id, stock_id: Stock.all.sample.id)
 
+20.times do
+    PortfolioStock.create(portfolio_id: Portfolio.all.sample.id, stock_id: Stock.all.sample.id)
+end
+
+5.times do
+    PortfolioStock.create(portfolio_id: Investor.first, stock_id: Stock.all.sample.id)
+end
 puts "Done!"

@@ -12,7 +12,7 @@ const Account = () => {
         setToggleAuth
             } = useContext(UserContext)
 
-    console.log(investor)
+    // console.log(investor)
     const [patchFormValues, setPatchFormValues] = useState({
         first_name: investor.first_name,
         last_name: investor.last_name,

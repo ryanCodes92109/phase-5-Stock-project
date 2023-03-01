@@ -27,6 +27,12 @@ const NavBar = () => {
             className='navButton'
             >Home</li>
     </Link>
+
+    <Link to='portfolio'>
+      <li 
+        className='navButton'
+      >My Portfolio</li>
+    </Link>
     <Link to='stocks'>
         <li 
             className='navButton'

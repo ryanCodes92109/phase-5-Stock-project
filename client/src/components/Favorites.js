@@ -15,8 +15,8 @@ const Favorites = ({userFavorites}) => {
     const mappedFavorites = userFavorites.map(singleFavorite => (
         <FavoriteCard 
           key={singleFavorite.id}
-          stockName={singleFavorite.name}  
-          stockPrice={singleFavorite.current_price}/>
+          stockName={singleFavorite.stock_name}  
+          stockPrice={singleFavorite.stock_price}/>
       )
     )
 

@@ -7,7 +7,10 @@ import Login from './components/Login';
 import Favorites from './components/Favorites';
 import Account from './components/Account';
 import Signup from './components/Signup';
+import Portfolio from './components/Portfolio';
 import { UserContext } from './context/UserContext';
+import 'semantic-ui-css/semantic.min.css'
+
 // import API_KEY from '.src/.env'
 
 function App() {
@@ -17,6 +20,8 @@ function App() {
     fetchAuthorizedUser
     
     } = useContext(UserContext)
+
+
 
     useEffect(() => {
       fetchAuthorizedUser()
@@ -39,6 +44,14 @@ function App() {
             path='/' 
             element={<Account />}
           />
+      
+            <Route
+              path='/portfolio'
+              element={ <Portfolio />}
+            >
+
+            </Route>
+        
           <Route 
             path='/stocks' 
             element={ <Stocks/> }
