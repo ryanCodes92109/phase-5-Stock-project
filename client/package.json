@@ -2,8 +2,8 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000", 
-   "dependencies": {
+  "proxy": "http://localhost:3000",
+  "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -16,6 +16,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
