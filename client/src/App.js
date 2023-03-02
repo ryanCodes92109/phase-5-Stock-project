@@ -11,13 +11,18 @@ import Portfolio from './components/Portfolio';
 import { UserContext } from './context/UserContext';
 import { AppContainer } from './styled components/AppContainer.style';
 
-// import API_KEY from '.src/.env'
+
 
 function App() {
+
+
+
   const {
     investor, 
     setInvestor,
-    fetchAuthorizedUser
+    fetchAuthorizedUser,
+    toggleAuth,
+    setToggleAuth
     
     } = useContext(UserContext)
 
@@ -27,13 +32,31 @@ function App() {
       fetchAuthorizedUser()
     }, [])
 
+  if(!investor) {
+    return (
+      <Routes>
+        <Route   
+          path='/login'
+          element={ 
+       <Login /> } /> 
 
+        <Route 
+          path='/signup'
+          element= {
+            <Signup />
+          }
+          />
 
-  if(!investor) return <Login setCurrentUser = {setInvestor} />
+      </Routes>
+      )
+    }
 
   return (
+    
     <AppContainer>
+
       <NavBar /> 
+
         <Routes>
           <Route 
             path='/' 
@@ -43,27 +66,22 @@ function App() {
             <Route
               path='/portfolio'
               element={ <Portfolio />}
-            >
-
-            </Route>
-        
+            />
+            
           <Route 
             path='/stocks' 
             element={ <Stocks/> }
           />
+
           <Route 
             path='/favorites' 
             element={ <Favorites userFavorites={investor.favorites}/> }
           />
-          <Route 
-            path='/login'
-            element={ <Login />}
-          />
-          <Route 
-            path='/signup' 
-            element={ <Signup />  }
-          />
+
+    
+          
         </Routes >
+
     </AppContainer>
   );
 }

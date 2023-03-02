@@ -3,8 +3,12 @@ import { useState, useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 import Signup from './Signup'
 import Login from './Login'
+import { useNavigate } from 'react-router-dom'
 
 const Account = () => {
+
+    const navigate = useNavigate()
+
     const {
         investor, 
         setInvestor, 
@@ -53,9 +57,11 @@ const Account = () => {
         .then(res => {
             if(res.status === 204) {
                 setInvestor(null)
-                console.log(res)
+                // console.log(res)
+                navigate('/login')
             } else {
                 alert(res)
+                
             }
         })
     }

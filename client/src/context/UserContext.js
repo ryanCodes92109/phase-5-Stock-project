@@ -8,18 +8,21 @@ const UserProvider = ({children}) => {
     // state for mapping and all stocks
     const [stock, setStock] = useState([])
     const [favorite, setFavorite] = useState([])
-    const [toggleAuth, setToggleAuth] = useState(false)
 
     // user state for auth
     const [investor, setInvestor] = useState(null)
+    // const [toggleAuth, setToggleAuth] = useState(false)
+
     
     const fetchAuthorizedUser = () => {
-      return fetch('/authorized_investor')
+       fetch('/authorized_investor')
       .then(res => {
         if(res.status === 200) {
           res.json()
           .then(user=> setInvestor(user))
         } else {
+          res.json()
+          .then((errorObj) => console.log(errorObj.errors))
           setInvestor(null)
         }
       })
@@ -44,9 +47,8 @@ const UserProvider = ({children}) => {
             fetchAuthorizedUser,
             // fetchFavorites,
             favorite,
-            setFavorite, 
-            toggleAuth,
-            setToggleAuth
+            setFavorite 
+         
           }
         }>
             {children}
