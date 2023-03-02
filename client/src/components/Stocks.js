@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import StockCard from './StockCard'
 import { UserContext } from '../context/UserContext'
+import CardParent  from '../styled components/CardParent.style' 
 
 const Stocks = () => {
 
@@ -23,10 +24,9 @@ const Stocks = () => {
 
 
   return (
-    <div className='stockCardParent'>       
-        {mappedStocks}
-        
-    </div>
+    <CardParent>       
+        {mappedStocks}    
+    </CardParent>
   )
 }
 

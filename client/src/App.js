@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { useContext, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
@@ -15,18 +15,13 @@ import { AppContainer } from './styled components/AppContainer.style';
 
 function App() {
 
-
-
   const {
     investor, 
     setInvestor,
     fetchAuthorizedUser,
     toggleAuth,
     setToggleAuth
-    
     } = useContext(UserContext)
-
-
 
     useEffect(() => {
       fetchAuthorizedUser()
@@ -52,7 +47,7 @@ function App() {
     }
 
   return (
-    
+
     <AppContainer>
 
       <NavBar /> 
@@ -75,7 +70,9 @@ function App() {
 
           <Route 
             path='/favorites' 
-            element={ <Favorites userFavorites={investor.favorites}/> }
+            element={ <Favorites 
+              userFavorites={investor.favorites}
+            /> }
           />
 
     
