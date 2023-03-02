@@ -12,7 +12,7 @@ class InvestorsController < ApplicationController
 
     def create
         new_investor = Investor.create!(investor_params)
-        session[:investor_id] = new_investor.id
+        session[:user_id] = new_investor.id
         render json: new_investor, status: :created
     end
 

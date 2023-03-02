@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
 
     def current_investor
       # byebug
-      @user ||= Investor.find_by(id: session[:user_id]) #if session[:user_id]
+      @user ||= Investor.find_by(id: session[:user_id]) if session[:user_id]
       # byebug
     end
 
