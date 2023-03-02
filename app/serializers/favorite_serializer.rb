@@ -1,5 +1,5 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :id, :investor_id, :stock_id, :stock_name, :stock_price
+  attributes :id, :stock_name, :stock_price
   belongs_to :investor
   belongs_to :stock
 
