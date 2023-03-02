@@ -1,15 +1,16 @@
 import React from 'react'
-import Button from '../styled components/Button.style'
+import NavLink from '../styled components/Link.style'
+import StyledCard from '../styled components/Card.style'
 
 const FavoriteCard = ({stockName, stockPrice}) => {
   return (
-    <div className='favoriteCard'>
+    <StyledCard>
       {stockName} 
       <br/>
       ${stockPrice}/ per share
       <br />
-      <Button>Remove </Button>
-    </div>
+      <NavLink>Remove </NavLink>
+    </StyledCard>
   )
 }
 

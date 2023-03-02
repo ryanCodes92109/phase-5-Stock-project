@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
-import { NavLink } from '../styled components/Link.style'
+import NavLink from '../styled components/Link.style'
 import { NavBarContainer } from '../styled components/NavBar.style'
 
 const NavBar = () => {
@@ -31,7 +31,7 @@ const NavBar = () => {
               >Home</li>
       </NavLink>
 
-      <NavLink to='portfolio'>
+      <NavLink to='/portfolio'>
         <li 
           className='navButton'
         >My Portfolio</li>

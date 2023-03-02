@@ -29,7 +29,7 @@ Investor.destroy_all
 
 
 Investor.create(first_name:"Ryan", last_name: "Sullivan", email:"ryan@gmail.com", password:"password")
-20.times do
+200.times do
     Stock.create(name: Faker::Company.name, current_price: Faker::Number.digit)
     end
 # 1.times do

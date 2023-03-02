@@ -3,10 +3,13 @@ import NavBar from "../components/NavBar";
 
 export const NavBarContainer= styled.nav`
     display: flex;
+    position:fixed;
+    height:10vh;
     width:100vw;
-    height: 10vh;
     background-color:grey;
-    border:5px solid black;
+    margin:auto;
+    /* border:5px solid black; */
     gap:1vw;
     justify-content: flex-end;
+    
     `

@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { UserContext } from '../context/UserContext'
 import FavoriteCard from './FavoriteCard'
-import Button from '../styled components/Button.style'
+import CardParent  from '../styled components/CardParent.style' 
 
 const Favorites = ({userFavorites}) => {
 
@@ -22,9 +22,9 @@ const Favorites = ({userFavorites}) => {
     )
 
   return (
-    <div className='favoriteCardParent'>
+    <CardParent>
         {mappedFavorites}
-    </div>
+    </CardParent>
   )
 }
 
