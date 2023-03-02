@@ -13,15 +13,12 @@ const Stocks = () => {
         .then(data => setStock(data))
     }, [setStock])
 
-    // console.log(stock)
-
     const mappedStocks = stock.map(singleStock => (
         <StockCard 
             key = {singleStock.id} 
             name ={singleStock.name}
             price={singleStock.current_price}
         />))
-
 
   return (
     <CardParent>       

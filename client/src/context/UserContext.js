@@ -12,7 +12,6 @@ const UserProvider = ({children}) => {
     // user state for auth
     const [investor, setInvestor] = useState(null)
     // const [toggleAuth, setToggleAuth] = useState(false)
-
     
     const fetchAuthorizedUser = () => {
        fetch('/authorized_investor')
@@ -28,13 +27,15 @@ const UserProvider = ({children}) => {
       })
     }
 
-    // console.log(investor)
+
 
   useEffect(() => {
     fetch('/favorites')
     .then(res => res.json())
     .then(data => setFavorite(data))
   }, [])
+
+  // console.log(investor)
 
   return (
     <div>

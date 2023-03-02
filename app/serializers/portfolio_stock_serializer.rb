@@ -1,10 +1,14 @@
 class PortfolioStockSerializer < ActiveModel::Serializer
-  attributes :id, :portfolio_id, :stock_id, :name
+  attributes :id, :name
   belongs_to :portfolio
   belongs_to :stock
 
   def name
     self.object.stock.name
+  end
+
+  def price
+    self.object.stock.price
   end
 
   
