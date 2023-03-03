@@ -6,7 +6,7 @@ export const NavBarContainer= styled.nav`
     position:fixed;
     height:10vh;
     width:100vw;
-    background-color:grey;
+    background-color:lightgrey;
     margin:auto;
     /* border:5px solid black; */
     gap:1vw;

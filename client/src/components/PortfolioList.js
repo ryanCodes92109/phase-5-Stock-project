@@ -2,10 +2,11 @@ import React from 'react'
 import StyledCard from '../styled components/Card.style'
 
 
-const PortfolioList = ({}) => {
+const PortfolioList = ({name, price}) => {
   return (
     <StyledCard >
-
+        {name}
+        {price}
     </StyledCard>
   )
 }

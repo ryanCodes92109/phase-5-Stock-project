@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from '@mui/material'
 import  StyledCard  from '../styled components/Card.style'
 import FavoritesLink from '../styled components/AddToFavorites.style'
-
+import Button from '../styled components/Button.style'
 
 const StockCard = ({name, price}) => {
 
@@ -15,9 +15,9 @@ const StockCard = ({name, price}) => {
               <br/>
               ${price}
               <br/>
-            <FavoritesLink 
+            <Button 
             > Add to Favorites
-            </FavoritesLink>
+            </Button>
         </StyledCard>
    
   )

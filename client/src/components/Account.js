@@ -100,8 +100,12 @@ const Account = () => {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
+          position="fixed"
+          backgroundColor='lightgrey'
+          width='35vw'
           sx={{
-            marginTop: 8,
+            
+            marginTop: 16,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -112,7 +116,8 @@ const Account = () => {
             component="form" 
             noValidate 
             onSubmit={e => accountSubmitForm(e, patchFormValues)} 
-            sx={{ mt: 3 }}>
+            sx={{ mt: 3, width: 1/2  }}
+            >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -141,6 +146,7 @@ const Account = () => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  sx ={{minwidth:150}}
                   required
                   fullWidth
                   onChange = {accountPatchFormChange}            
@@ -164,7 +170,9 @@ const Account = () => {
        
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        {/* <Copyright 
+          display='fixed'
+          sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
 
