@@ -9,14 +9,19 @@ theme.spacing(2);
     /* border:5px solid black; */
   display: flex;
   flex-direction:column;
-  border-radius: 3px;
+  border-radius: 1rem;
   padding: 0.5rem 0;
-  margin: 3vh 3vw;
+  margin: 4vh 3vw;
   width: 11rem;
   height:8rem;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
+  background: white;
+  color: black;
+  align-items: center;
+  background-color: lightgrey;
+  
+  /* border-radius: 1; */
+  /* box-shadow: 3px 3px blue, -1em 0 .4em chocolate;  
+  border: 2px solid white; */
 `
 
 export default StyledCard

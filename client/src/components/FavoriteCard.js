@@ -1,6 +1,7 @@
 import React from 'react'
 import NavLink from '../styled components/Link.style'
 import StyledCard from '../styled components/Card.style'
+import Button from '../styled components/Button.style'
 
 const FavoriteCard = ({stockName, stockPrice}) => {
   return (
@@ -9,7 +10,7 @@ const FavoriteCard = ({stockName, stockPrice}) => {
       <br/>
       ${stockPrice}/ per share
       <br />
-      <NavLink>Remove </NavLink>
+      <Button>Remove </Button>
     </StyledCard>
   )
 }

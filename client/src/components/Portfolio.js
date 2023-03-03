@@ -34,11 +34,10 @@ const Portfolio = () => {
 
   return (
     <CardParent>
-  
-
-      {/* {mappedPortfolioStocks} */}
-      
-
+      <PortfolioList 
+        name={mappedPortfolioStocks.name}
+        price={mappedPortfolioStocks.current_price}
+      />
     </CardParent>
   )
 }
