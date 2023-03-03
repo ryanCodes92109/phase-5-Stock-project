@@ -9,7 +9,7 @@ import Account from './components/Account';
 import Signup from './components/Signup';
 import Portfolio from './components/Portfolio';
 import { UserContext } from './context/UserContext';
-import { AppContainer } from './styled components/AppContainer.style';
+import { AppContainer } from './styled_components/AppContainer.style';
 
 
 

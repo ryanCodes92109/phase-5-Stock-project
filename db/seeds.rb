@@ -46,16 +46,16 @@ end
     Favorite.create(investor_id: Investor.all.sample.id, stock_id:Stock.all.sample.id)
 end
 
-Portfolio.create(investor_id: 1, quantity:Faker::Number.positive(from:1, to: 20))
-Portfolio.create(investor_id: Investor.all.sample.id, quantity:Faker::Number.positive(from:1, to: 100))
+Portfolio.create(investor_id: 1)
+Portfolio.create(investor_id: Investor.all.sample.id)
 
 
 20.times do
-    PortfolioStock.create(portfolio_id: Portfolio.all.sample.id, stock_id: Stock.all.sample.id)
+    PortfolioStock.create(portfolio_id: Portfolio.all.sample.id, stock_id: Stock.all.sample.id, quantity: 10)
 end
 
 5.times do
-    PortfolioStock.create(portfolio_id: Investor.first, stock_id: Stock.all.sample.id)
+    PortfolioStock.create(portfolio_id: Investor.first, stock_id: Stock.all.sample.id , quantity: 10)
 end
 
 puts "Done!"

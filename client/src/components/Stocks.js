@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import StockCard from './StockCard'
 import { UserContext } from '../context/UserContext'
-import CardParent  from '../styled components/CardParent.style' 
+import CardParent  from '../styled_components/CardParent.style' 
 
 const Stocks = () => {
 

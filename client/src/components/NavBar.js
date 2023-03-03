@@ -1,8 +1,8 @@
 import React, {useContext} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
-import NavLink from '../styled components/Link.style'
-import { NavBarContainer } from '../styled components/NavBar.style'
+import NavLink from '../styled_components/Link.style'
+import { NavBarContainer } from '../styled_components/NavBar.style'
 
 const NavBar = () => {
   const {setInvestor} = useContext(UserContext)

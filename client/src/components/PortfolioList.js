@@ -1,12 +1,15 @@
 import React from 'react'
-import StyledCard from '../styled components/Card.style'
+import StyledCard from '../styled_components/Card.style'
+import PortfolioCard from './PortfolioCard'
 
 
-const PortfolioList = ({name, price}) => {
+const PortfolioList = ({portfolios}) => {
+
+  const mappedPortfolioStocks = portfolios.map(portfolio => <PortfolioCard  key={portfolio.id} {...portfolio} />)
+
   return (
     <StyledCard >
-        {name}
-        {price}
+        {mappedPortfolioStocks}
     </StyledCard>
   )
 }

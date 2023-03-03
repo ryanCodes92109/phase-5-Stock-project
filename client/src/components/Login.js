@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
-import { AppContainer } from '../styled components/AppContainer.style'
+import { AppContainer } from '../styled_components/AppContainer.style'
 // import {TextField, Button, ButtonGroup} from '@mui/material/';
 
 import Avatar from '@mui/material/Avatar';
