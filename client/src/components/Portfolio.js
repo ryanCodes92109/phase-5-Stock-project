@@ -4,16 +4,18 @@ import { useNavigate, Routes, Route } from 'react-router-dom'
 import Login from './Login'
 import Signup from './Signup'
 import PortfolioList from './PortfolioList'
-import CardParent from '../styled components/CardParent.style'
+import CardParent from '../styled_components/CardParent.style'
 
 
 const Portfolio = () => {
     const {investor} = useContext(UserContext)
     // const navigate = useNavigate()
 
-    const mappedPortfolioStocks = investor.portfolios.map(portfolio => portfolio.stock_name)
+    console.log(investor.portfolios[0])
 
-    console.log(mappedPortfolioStocks)
+    
+
+
 
     
 
@@ -35,8 +37,7 @@ const Portfolio = () => {
   return (
     <CardParent>
       <PortfolioList 
-        name={mappedPortfolioStocks.name}
-        price={mappedPortfolioStocks.current_price}
+        portfolios={investor.portfolios}
       />
     </CardParent>
   )

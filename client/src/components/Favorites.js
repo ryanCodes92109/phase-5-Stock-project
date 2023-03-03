@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { UserContext } from '../context/UserContext'
 import FavoriteCard from './FavoriteCard'
-import CardParent  from '../styled components/CardParent.style' 
+import CardParent  from '../styled_components/CardParent.style' 
 
 const Favorites = ({userFavorites}) => {
 
