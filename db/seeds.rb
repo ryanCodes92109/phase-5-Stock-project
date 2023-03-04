@@ -46,8 +46,10 @@ end
     Favorite.create(investor_id: Investor.all.sample.id, stock_id:Stock.all.sample.id)
 end
 
-Portfolio.create(investor_id: 1)
-Portfolio.create(investor_id: Investor.all.sample.id)
+Portfolio.create(investor_id: 1, portfolio_name: 'stocks')
+Portfolio.create(investor_id: 1, portfolio_name: 'real estate')
+
+# Portfolio.create(investor_id: Investor.all.sample.id)
 
 
 20.times do
