@@ -18,8 +18,6 @@ import ListOfPortfolios from './components/ListOfPortfolios';
 
 function App() {
 
-  const currentLocation = useLocation()
-  console.log(currentLocation)
 
   const {
     investor, 
@@ -82,8 +80,8 @@ function App() {
           />
 
           <Route 
-            // path={`/current-portfolio/${id}`} 
-            element={<ListOfPortfolios />}
+            // path={`/mappedPortfolioNames[0].props.id`} 
+            element={<PortfolioOfStock />}
           />
 
         </Routes >
