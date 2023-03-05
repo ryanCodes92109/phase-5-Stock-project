@@ -12,7 +12,8 @@ import PortfolioSubmitForm from '../styled_components/PortfolioSubmitForm.sty'
 
 const ListOfPortfolios = ({portfolios}) => {
   const navigate=useNavigate()
-  const {investor
+  const {investor,
+          setInvestor
         } =useContext(UserContext)
 
         const newPortfolioFormData = {
@@ -21,6 +22,8 @@ const ListOfPortfolios = ({portfolios}) => {
 
         const [portfolioSubmit, setPortfolioSubmit] = useState(newPortfolioFormData)
 
+        console.log(portfolios)
+
   // const mappedPortfolioId = portfolios.map(portfolioId => (
   //   portfolioId.id
   //   )
@@ -28,6 +31,8 @@ const ListOfPortfolios = ({portfolios}) => {
 
 
   // console.log(portfolios[0].id)
+
+  
 
   const newPortfolioSubmit = (e, portfolioFormData) => {
     console.log('hello')
@@ -41,12 +46,14 @@ const ListOfPortfolios = ({portfolios}) => {
         })
         .then(res => {
               if(res.status !== 201) {
-                console.log('Something went wrong')
+                alert('Something went wrong')
               } else {
-                
+                res.json()
+                .then(data => setPortfolioSubmit({data, ...portfolioSubmit}) )
               }
             })
   }
+  console.log(portfolios)
 
   const newPortfolioHandleChange = e => {
     console.log(e.target.value)
@@ -55,16 +62,16 @@ const ListOfPortfolios = ({portfolios}) => {
   }
 
 
-  const goToPortfolioClick = e  => {
-    console.log('ello')
-    navigate(`/current-portfolio/${portfolios.id}/` )
-  } 
+  // const goToPortfolioClick = id  => {
+  //   navigate(`/portfolios/${id}/` )
+  // } 
 
   const mappedPortfolioNames = portfolios.map( p => (
     <StyledCard 
       key ={p.id}
       id = {p.id}
-      onClick={goToPortfolioClick}>  
+      onClick={() => navigate(`/portfolios/${p.id}/`)}
+      >  
       Portfolio: {p.id} <br/>
       {p.portfolio_name}
     </StyledCard>
@@ -73,7 +80,7 @@ const ListOfPortfolios = ({portfolios}) => {
   ) 
 // console.log(mappedPortfolioNames[0].props.id)
 
-console.log(portfolios)
+// console.log(portfolios)
   return (
     // <>
       <CardParent >
@@ -88,7 +95,9 @@ console.log(portfolios)
         <Button>Submit</Button>
 
       </PortfolioSubmitForm>
-        {mappedPortfolioNames}
+
+        {mappedPortfolioNames }
+
       </CardParent>
     // </>
   )

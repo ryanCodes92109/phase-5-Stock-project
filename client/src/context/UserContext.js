@@ -13,6 +13,8 @@ const UserProvider = ({children}) => {
     const [investor, setInvestor] = useState(null)
     // const [toggleAuth, setToggleAuth] = useState(false)
     
+
+    
     const fetchAuthorizedUser = () => {
        fetch('/authorized_investor')
       .then(res => {

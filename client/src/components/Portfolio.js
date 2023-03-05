@@ -29,6 +29,8 @@ const Portfolio = () => {
         )
       }
 
+      // console.log(investor.portfolios)
+
   return (
     <CardParent>
       <ListOfPortfolios 

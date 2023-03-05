@@ -6,7 +6,7 @@ puts "destroying portfolioStock"
 PortfolioStock.destroy_all
 puts 'destroying portfolio'
 Portfolio.destroy_all
-# puts "destroying stocks"
+puts "destroying stocks"
 Stock.destroy_all
 puts "destroying investors"
 Investor.destroy_all
@@ -54,9 +54,13 @@ Portfolio.create(investor_id: 1, portfolio_name: 'real estate')
 # Portfolio.create(investor_id: Investor.all.sample.id)
 
 
-# 20.times do
-#     PortfolioStock.create(portfolio_id: Portfolio.all.sample.id, stock_id: Stock.all.sample.id, quantity: 10)
-# end
+10.times do
+    PortfolioStock.create(portfolio_id: 1, stock_id: Stock.all.sample.id, quantity: 10)
+ end
+
+ 10.times do
+    PortfolioStock.create(portfolio_id: 2, stock_id: Stock.all.sample.id, quantity: 10)
+ end
 
 # 5.times do
 #     PortfolioStock.create(portfolio_id: Investor.first, stock_id: Stock.all.sample.id , quantity: 10)
