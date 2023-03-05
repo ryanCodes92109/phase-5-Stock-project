@@ -53,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_174453) do
   create_table "stocks", force: :cascade do |t|
     t.string "name"
     t.decimal "current_price"
+    t.string "ticker"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

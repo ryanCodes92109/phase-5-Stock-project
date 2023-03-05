@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import { AppContainer } from '../styled_components/AppContainer.style'
-// import {TextField, Button, ButtonGroup} from '@mui/material/';
-
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,7 +11,6 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -27,11 +24,7 @@ const Login = () => {
         })
 
     const {
-        setInvestor,
-        investor,
-        // loginSubmit
-        toggleAuth,
-        setToggleAuth
+        setInvestor
         } = useContext(UserContext)
 
         const handleChange = (e) => {
