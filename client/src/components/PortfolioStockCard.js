@@ -10,10 +10,6 @@ const PortfolioStockCard = ({id, stock_name}) => {
         {stock.quantity}
     </StyledCard>))
 
-  // console.log(stock_name)
-  // const portfolioList = stock_name.map()
-    // const mappedListOfPortfolios = 
-    console.log(mappedStocks)
   return (
     <>
         {mappedStocks}

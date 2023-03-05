@@ -63,7 +63,7 @@ function App() {
           />
       
             <Route
-              path='/portfolio'
+              path='/portfolios'
               element={ <Portfolio />}
             />
             
@@ -80,8 +80,10 @@ function App() {
           />
 
           <Route 
-            // path={`/mappedPortfolioNames[0].props.id`} 
-            element={<PortfolioOfStock />}
+            path='/portfolios/:id' 
+            element={<PortfolioOfStock 
+                      
+                      portfolios={investor.portfolios}/>}
           />
 
         </Routes >
