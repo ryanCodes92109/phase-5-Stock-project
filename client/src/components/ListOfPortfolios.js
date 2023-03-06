@@ -9,7 +9,6 @@ import Button from '../styled_components/Button.style'
 import SubmitField from '../styled_components/TextField.style'
 import PortfolioSubmitForm from '../styled_components/PortfolioSubmitForm.sty'
 
-
 const ListOfPortfolios = ({portfolios}) => {
   const navigate=useNavigate()
   const {investor,
@@ -23,16 +22,6 @@ const ListOfPortfolios = ({portfolios}) => {
         const [portfolioSubmit, setPortfolioSubmit] = useState(newPortfolioFormData)
 
         console.log(portfolios)
-
-  // const mappedPortfolioId = portfolios.map(portfolioId => (
-  //   portfolioId.id
-  //   )
-  // )
-
-
-  // console.log(portfolios[0].id)
-
-  
 
   const newPortfolioSubmit = (e, portfolioFormData) => {
     console.log('hello')
@@ -67,25 +56,41 @@ const ListOfPortfolios = ({portfolios}) => {
     const {name,value} =e.target
     setPortfolioSubmit({...portfolioSubmit, [name]:value})
   }
-
-  const portfolioDelete = e => {
+  const portfolioDelete = (p) => {
     console.log("FUCK YEAH")
+    fetch(`/portfolios/${p.id}`, {
+      method: "DELETE"
+    })
+    .then(res => {
+      if(res.status === 204) {
+        const updatedInvestor = {
+          ...investor,
+          portfolios: investor.portfolios.filter(portfolio => portfolio.id !== p.id)
+        }
+        setInvestor(updatedInvestor)        
+        console.log(res)
+      } else {
+      res.json()
+      .then(error => alert(error))
+      }
+    })
   }
-
-
+  console.log(portfolios)
 
   const mappedPortfolioNames = portfolios.map( p => (
     <StyledCard 
       key ={p.id}
       id = {p.id}
-      onClick={() => navigate(`/portfolios/${p.id}/`)}
+      // onClick={() => navigate(`/portfolios/${p.id}/`)}
       >  
-      Portfolio: {p.id} <br/>
       {p.portfolio_name} <br/>
       ${p.quantity}
-        {/* <Button
-          onClick={portfolioDelete}
-        >Delete</Button> */}
+      <Button
+        onClick={() => navigate(`/portfolios/${p.id}`)}
+      >View Portfolio</Button>
+      <Button
+        onClick = {() => portfolioDelete(p)}
+      >Delete</Button>
     </StyledCard>
 
     )
