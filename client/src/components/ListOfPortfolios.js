@@ -49,11 +49,18 @@ const ListOfPortfolios = ({portfolios}) => {
                 alert('Something went wrong')
               } else {
                 res.json()
-                .then(data => setPortfolioSubmit({data, ...portfolioSubmit}) )
+                .then(data => {
+                  const updatedInvestor = { 
+                    ...investor, 
+                    portfolios: [...investor.portfolios, data]
+                  }
+                  setInvestor(updatedInvestor)
+                } 
+              )
               }
             })
   }
-  console.log(portfolios)
+  // console.log(portfolios)
 
   const newPortfolioHandleChange = e => {
     console.log(e.target.value)
@@ -61,10 +68,11 @@ const ListOfPortfolios = ({portfolios}) => {
     setPortfolioSubmit({...portfolioSubmit, [name]:value})
   }
 
+  const portfolioDelete = e => {
+    console.log("FUCK YEAH")
+  }
 
-  // const goToPortfolioClick = id  => {
-  //   navigate(`/portfolios/${id}/` )
-  // } 
+
 
   const mappedPortfolioNames = portfolios.map( p => (
     <StyledCard 
@@ -73,7 +81,11 @@ const ListOfPortfolios = ({portfolios}) => {
       onClick={() => navigate(`/portfolios/${p.id}/`)}
       >  
       Portfolio: {p.id} <br/>
-      {p.portfolio_name}
+      {p.portfolio_name} <br/>
+      ${p.quantity}
+        {/* <Button
+          onClick={portfolioDelete}
+        >Delete</Button> */}
     </StyledCard>
 
     )
