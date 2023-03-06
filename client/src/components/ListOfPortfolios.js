@@ -60,7 +60,7 @@ const ListOfPortfolios = ({portfolios}) => {
               }
             })
   }
-  console.log(portfolios)
+  // console.log(portfolios)
 
   const newPortfolioHandleChange = e => {
     console.log(e.target.value)
@@ -68,11 +68,12 @@ const ListOfPortfolios = ({portfolios}) => {
     setPortfolioSubmit({...portfolioSubmit, [name]:value})
   }
 
+  const portfolioDelete = e => {
+    console.log("FUCK YEAH")
+  }
 
-  // const goToPortfolioClick = id  => {
-  //   navigate(`/portfolios/${id}/` )
-  // } 
-console.log(portfolios)
+
+
   const mappedPortfolioNames = portfolios.map( p => (
     <StyledCard 
       key ={p.id}
@@ -82,7 +83,9 @@ console.log(portfolios)
       Portfolio: {p.id} <br/>
       {p.portfolio_name} <br/>
       ${p.quantity}
-
+        {/* <Button
+          onClick={portfolioDelete}
+        >Delete</Button> */}
     </StyledCard>
 
     )
