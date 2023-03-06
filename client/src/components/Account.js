@@ -4,17 +4,12 @@ import { UserContext } from '../context/UserContext'
 import Signup from './Signup'
 import Login from './Login'
 import { useNavigate } from 'react-router-dom'
-
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -31,7 +26,6 @@ const Account = () => {
         setToggleAuth
             } = useContext(UserContext)
 
-    // console.log(investor)
     const [patchFormValues, setPatchFormValues] = useState({
         first_name: investor.first_name,
         last_name: investor.last_name,
@@ -166,6 +160,11 @@ const Account = () => {
               sx={{ mt: 3, mb: 2 }}
             >
               Update Your Information
+            </Button>
+            <Button
+                onClick = {investorDelete}  
+            >Delete User
+
             </Button>
        
           </Box>

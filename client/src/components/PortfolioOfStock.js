@@ -16,7 +16,7 @@ console.log(filteredPortfolios)
   return (
     <StyledCard >
         {mappedPortfolioStocks}
-     </StyledCard> 
+    </StyledCard> 
   )
 }
 

@@ -34,7 +34,6 @@ const Login = () => {
 
         const loginSubmit = (e, loginFormData) => {
             e.preventDefault()
-            // console.log('submit')
             fetch('/login', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},

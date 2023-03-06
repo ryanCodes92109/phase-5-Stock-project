@@ -21,10 +21,10 @@ const ListOfPortfolios = ({portfolios}) => {
 
         const [portfolioSubmit, setPortfolioSubmit] = useState(newPortfolioFormData)
 
-        console.log(portfolios)
+        // console.log(portfolios)
 
   const newPortfolioSubmit = (e, portfolioFormData) => {
-    console.log('hello')
+    // console.log('hello')
     e.preventDefault()
     fetch('/portfolios', {
           method: 'POST',
@@ -56,8 +56,8 @@ const ListOfPortfolios = ({portfolios}) => {
     const {name,value} =e.target
     setPortfolioSubmit({...portfolioSubmit, [name]:value})
   }
+  
   const portfolioDelete = (p) => {
-    console.log("FUCK YEAH")
     fetch(`/portfolios/${p.id}`, {
       method: "DELETE"
     })
@@ -75,13 +75,12 @@ const ListOfPortfolios = ({portfolios}) => {
       }
     })
   }
-  console.log(portfolios)
+  // console.log(portfolios)
 
   const mappedPortfolioNames = portfolios.map( p => (
     <StyledCard 
       key ={p.id}
       id = {p.id}
-      // onClick={() => navigate(`/portfolios/${p.id}/`)}
       >  
       {p.portfolio_name} <br/>
       ${p.quantity}
@@ -95,9 +94,7 @@ const ListOfPortfolios = ({portfolios}) => {
 
     )
   ) 
-// console.log(mappedPortfolioNames[0].props.id)
 
-// console.log(portfolios)
   return (
     // <>
       <CardParent >
