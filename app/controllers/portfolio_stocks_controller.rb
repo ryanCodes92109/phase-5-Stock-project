@@ -6,8 +6,10 @@ class PortfolioStocksController < ApplicationController
     end
 
     def create
-        params[:investor_id] = @user.id
-        render json: PortfolioStock.create!(portfolio_params), status: :created
+        # params[:investor_id] = @user.id
+        # byebug
+        newPortfolioStock = PortfolioStock.create!(portfolio_params) 
+        render json: newPortfolioStock, status: :created
     end
 
     def destroy
@@ -21,6 +23,6 @@ class PortfolioStocksController < ApplicationController
     end
 
     def portfolio_params
-        params.permit(:portfolio_id, :stock_id, :quantity)
+        params.permit(:portfolio_id, :stock_id)
     end
 end

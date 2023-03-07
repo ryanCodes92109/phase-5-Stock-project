@@ -22,10 +22,8 @@ function App() {
  
   const {
     investor, 
-    setInvestor,
     fetchAuthorizedUser,
-    toggleAuth,
-    setToggleAuth
+
     } = useContext(UserContext)
     // console.log(investor.portfolios.id)
 
@@ -70,7 +68,9 @@ function App() {
             
           <Route 
             path='/stocks' 
-            element={ <Stocks/> }
+            element={ <Stocks 
+              portfolios={investor.portfolios}
+              /> }
           />
 
           <Route 
