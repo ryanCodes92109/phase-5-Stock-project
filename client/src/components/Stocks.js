@@ -9,7 +9,11 @@ const Stocks = () => {
 
     const [selectedPortfolio, setSelectedPortfolio] = useState('');
     const [selectedStock, setSelectedStock] = useState('');
-
+    
+    const addedStock = {
+      portfolio_id: selectedPortfolio,
+      stock_id: selectedStock
+    };
 
     const{stock, setStock, investor, setInvestor} = useContext(UserContext)
 
@@ -47,10 +51,7 @@ const Stocks = () => {
     // }
     
     const handleAddToPortfolio = () => {
-        const addedStock = {
-          portfolio_id: selectedPortfolio,
-          stock_id: selectedStock
-        };
+        
         fetch('/portfolio_stocks', {
           method: "POST",
           headers: {
@@ -72,12 +73,6 @@ const Stocks = () => {
             }
           });
       }
-      
-
-
-    const handlePortfolioChange = e => {
-        setSelectedPortfolio(e.target.value);
-    };
 
     const handleStockChange = e => {
         setSelectedStock(e.target.value);
@@ -90,6 +85,7 @@ const Stocks = () => {
         <StockCard 
             key = {singleStock.id} 
             name ={singleStock.name}
+            value={addedStock.portfolio_id}
             price={singleStock.current_price}
             mappedPortfolioNames={mappedPortfolioNames}
             handleStockChange={handleStockChange}

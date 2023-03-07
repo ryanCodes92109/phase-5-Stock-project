@@ -19,6 +19,7 @@ import ListOfPortfolios from './components/ListOfPortfolios';
 function App() {
 
 
+ 
   const {
     investor, 
     setInvestor,
