@@ -31,6 +31,8 @@ stocks_dataset()
 # puts "some string"
 
 Investor.create(first_name:"Ryan", last_name: "Sullivan", email:"ryan@gmail.com", password:"password")
+Investor.create(first_name: "Test", last_name: "User", email: "rysull4@gmail.com", password:"password")
+
 # 20.times do
 
 #     Stock.create(name: Faker::Company.name, current_price: Faker::Number.digit)

@@ -171,48 +171,6 @@ const Signup = ({setToggleAuth}) => {
       </Container>
     </ThemeProvider>
 
-    // <div className='signupFormParent'>
-    //   <form 
-    //     onSubmit={e => signupSubmit(e, signupFormData)}
-    //     className='signupForm'>
-    //     <input 
-    //         className='signupInput'
-    //         placeholder='Enter First Name'
-    //         onChange={signupHandleChange}
-    //         name='first_name'
-    //         value={signupFormData.first_name}
-    //         ></input>
-
-    //     <input 
-    //         className='signupInput'
-    //         onChange={signupHandleChange}
-    //         placeholder='Enter Last Name'
-    //         name='last_name'
-    //         value={signupFormData.last_name}
-    //         ></input>
-
-    //     <input 
-    //         className='signupInput'
-    //         onChange={signupHandleChange}
-    //         placeholder= 'Enter Email'
-    //         name='email'
-    //         value={signupFormData.email}
-    //         ></input>
-
-    //     <input 
-    //         className='signupInput'
-    //         onChange={signupHandleChange}
-    //         placeholder='Enter New Password'
-    //         name='password'
-    //         value={signupFormData.password}
-    //         ></input>
-    //     <button>Sign Up</button> <br/>
-     
-    //   </form>
-    //   <Link to='/login'>Have an Account? Sign in here. 
-    //   </Link>
-      
-    // </div>
   )
 }
 

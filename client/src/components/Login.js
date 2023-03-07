@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import { AppContainer } from '../styled_components/AppContainer.style'
@@ -14,8 +14,29 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import jwt_decode from "jwt-decode"
+
 
 const Login = () => {
+
+  const handleCallbackResponse = response => {
+    console.log("Encoded JWT ID token: " + response.credential);
+    var userObject = jwt_decode(response.credential);
+    console.log(userObject)
+  }
+
+  useEffect(()=> {
+    /*global google */
+    google.accounts.id.initialize({
+      client_id: "274549703639-aak6ph71t1rqcfi2pfr92diie8kaafv8.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      {theme: "outline", size: 'medium'}
+    );
+  }, [])
+
     const theme = createTheme();
     const navigate = useNavigate()
     const [login, setLogin] = useState({
@@ -24,6 +45,7 @@ const Login = () => {
         })
 
     const {
+        
         setInvestor
         } = useContext(UserContext)
 
@@ -130,46 +152,25 @@ const Login = () => {
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
+
+
               </Grid>
               <Grid item>
                 <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
+                
               </Grid>
             </Grid>
+            <div id="signInDiv"></div>
           </Box>
         </Box>
+
+
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
 
-    // <AppContainer>
-    //     <form 
-    //           onSubmit={e => loginSubmit(e, login)}
-    //           className='loginForm'
-    //       >
-    //           <TextField 
-    //               placeholder='Enter Email'
-    //               name='email'
-    //               value={login.email}
-    //               type='text'
-    //               onChange={handleChange}
-    //           />
-    //           <TextField  
-    //               name='password'
-    //               value={login.password}
-    //               placeholder='Enter Password'
-    //               onChange={handleChange}
-    //               type='password'
-    //           />
-    //           <br/>
-    //           <ButtonGroup>
-    //             <Button type='submit'>Sign In</Button> <br/>
-    //             {/* <Link to='/signup'>Create an account</Link> */}
-    //             <Button  to='/signup'>Create an account</Button>
-    //           </ButtonGroup>
-    //     </form>
-    //    </AppContainer> 
       )
   }
 
