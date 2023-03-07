@@ -23,11 +23,11 @@ const Portfolio = () => {
       }
 
   return (
-    <CardParent>
+
       <ListOfPortfolios 
         portfolios={investor.portfolios}
       />
-    </CardParent>
+
   )
 }
 

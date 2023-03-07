@@ -14,9 +14,11 @@ console.log(filteredPortfolios)
   const mappedPortfolioStocks = filteredPortfolios.map(portfolio => <PortfolioStockCard  key={portfolio.id} {...portfolio} />)
 
   return (
-    <StyledCard >
+
+      <>
         {mappedPortfolioStocks}
-    </StyledCard> 
+      </>
+
   )
 }
 

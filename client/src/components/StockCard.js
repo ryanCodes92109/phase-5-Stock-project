@@ -1,80 +1,74 @@
 import React, { useContext, useState } from 'react'
-import  StyledCard  from '../styled_components/Card.style'
+import { UserContext } from '../context/UserContext';
 import Button from '../styled_components/Button.style'
-import { UserContext } from '../context/UserContext'
-
+import StyledCard from '../styled_components/Card.style'
 
 const StockCard = ({
-  name,
-  price,
-  mappedPortfolioNames,
-  handlePortfolioChange,
-  handleStockChange,
-  handleAddToPortfolio,
+  singleStock
 }) => {
+  const {
+    investor, 
+    handleAddToPortfolio
+        } = useContext(UserContext)
+
+        const [newPortfolioStockState, setNewPortfolioStockState] = useState({
+          portfolio_id: 0,
+          stock_id: singleStock.id
+          // ,quantity: 0
+        })
+        console.log(newPortfolioStockState)
+
+      
+  const mappedPortfolioNames = investor.portfolio_info.map(portfolioName =>( 
+    <option 
+      key={portfolioName.id} 
+      value={portfolioName.id}
+    >{portfolioName.portfolio_name}</option>) )
+
+
+
+const handleStockChange = e => {
+      // console.log(e.target.value)
+      setNewPortfolioStockState({
+          ...newPortfolioStockState,
+          [e.target.name]: parseInt(e.target.value)
+
+      });
+
+    };
+
+
+
   return (
-    <StyledCard>
-      {name}
+    
+      <StyledCard
+        key={singleStock.id}
+  
+      >
+  
+        {singleStock.name}
+        <br />
+        ${singleStock.price}
       <br />
-      ${price}
-      <br />
-
+  
       <Button> Add to Favorites </Button>
-
-      <select onChange={handlePortfolioChange}>
-        <option value="">Select a portfolio</option>
-        {mappedPortfolioNames}
+  
+      <select         
+        name = "portfolio_id"
+        value={newPortfolioStockState.portfolio_id}
+        onChange={handleStockChange}
+        >
+          <option value='shenanigans'>Select a portfolio</option>
+          {mappedPortfolioNames}
       </select>
-
-      <Button onClick={handleAddToPortfolio}> Add to Portfolio </Button>
+  
+      <Button onClick={() => handleAddToPortfolio(newPortfolioStockState)}> Add to Portfolio </Button>
     </StyledCard>
-  );
+  )
 };
 
-
-
-
-
-
-
-
-// const StockCard = ({
-//     name, 
-//     price, 
-//     mappedPortfolioNames,
-//     handleStockChange, 
-//     handleAddToPortfolio
-//                     }) => {
-
-  
-//   return (
-  
-//         < StyledCard>
-
-//               {name} 
-//               <br/>
-//               ${price}
-//               <br/>
-
-//             <Button 
-//             > Add to Favorites
-//             </Button>
-
-//             <select 
-//               onChange = {handleStockChange}
-//             >
-//               <option 
-//                 value =""
-//               >
-//               </option>
-//               {mappedPortfolioNames}
-//             </select>
-//             <Button onClick={handleAddToPortfolio}> Add to Portfolio </Button>
-
-
-//         </StyledCard>
-   
-//   )
-// }
-
 export default StockCard
+
+
+
+

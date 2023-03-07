@@ -59,9 +59,9 @@ console.log(investor.portfolio_stocks)
 
   return (
     <CardParent>
-        {mappedStocks}
-        
+      {mappedStocks}
     </CardParent>
+
   )
 }
 
