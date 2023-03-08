@@ -11,47 +11,42 @@ const StockCard = ({
     handleAddToPortfolio
         } = useContext(UserContext)
 
+        // console.log(singleStock)
+
         const [newPortfolioStockState, setNewPortfolioStockState] = useState({
           portfolio_id: 0,
           stock_id: singleStock.id
           // ,quantity: 0
         })
-        console.log(newPortfolioStockState)
+        // console.log(newPortfolioStockState)
 
       
   const mappedPortfolioNames = investor.portfolio_info.map(portfolioName =>( 
     <option 
       key={portfolioName.id} 
       value={portfolioName.id}
-    >{portfolioName.portfolio_name}</option>) )
-
-
+    >{portfolioName.portfolio_name}</option>) 
+    )
 
 const handleStockChange = e => {
       // console.log(e.target.value)
       setNewPortfolioStockState({
           ...newPortfolioStockState,
           [e.target.name]: parseInt(e.target.value)
-
       });
-
     };
-
-
 
   return (
     
       <StyledCard
         key={singleStock.id}
-  
       >
-  
         {singleStock.name}
         <br />
-        ${singleStock.price}
+        ${singleStock.current_price}
       <br />
   
-      <Button> Add to Favorites </Button>
+      {/* <Button> Add to Favorites </Button> */}
   
       <select         
         name = "portfolio_id"

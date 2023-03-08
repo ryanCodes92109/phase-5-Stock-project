@@ -39,7 +39,6 @@ const Account = () => {
 
     const accountSubmitForm = e => {
         e.preventDefault()
-        console.log('patch form')
         fetch(`/investors/${investor.id}`, {
             method: "PATCH",
             headers: {

@@ -10,6 +10,9 @@ const Portfolio = () => {
     const {investor} = useContext(UserContext)
     const navigate = useNavigate()
 
+    console.log(investor.portfolios)
+
+
     if(!investor) {
       return (
         <Routes>

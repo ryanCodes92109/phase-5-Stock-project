@@ -52,7 +52,24 @@ const UserProvider = ({children}) => {
       })
     }
 
-
+  const oauth = (userObject, navigate) => {
+    fetch('/oauth', {
+      method:'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify(userObject)
+    })
+    .then(res => {
+      if(res.status === 201) {
+        res.json()
+        .then(data => {
+          setInvestor(data)
+          navigate('/')
+        })
+      }
+    })
+  }
 
   useEffect(() => {
     fetch('/favorites')
@@ -74,7 +91,8 @@ const UserProvider = ({children}) => {
             // fetchFavorites,
             favorite,
             setFavorite,
-            handleAddToPortfolio 
+            handleAddToPortfolio,
+            oauth 
          
           }
         }>

@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#logout"
   get "/authorized_investor", to: "investors#show"
   post '/signup', to:'investors#create'
+  post '/oauth', to: 'investors#oauth'
+  
   
 end
