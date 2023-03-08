@@ -17,17 +17,25 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import jwt_decode from "jwt-decode"
 
 
+
 const Login = () => {
+
+  const {
+    oauth
+  } = useContext(UserContext)
 
   const handleCallbackResponse = response => {
     console.log("Encoded JWT ID token: " + response.credential);
     var userObject = jwt_decode(response.credential);
     console.log(userObject)
+    if(userObject !== {}) {
+      oauth(userObject, navigate)
+    }
   }
 
   useEffect(()=> {
     /*global google */
-    google.accounts.id.initialize({
+      google.accounts.id.initialize({
       client_id: "274549703639-aak6ph71t1rqcfi2pfr92diie8kaafv8.apps.googleusercontent.com",
       callback: handleCallbackResponse
     });
@@ -91,7 +99,7 @@ const Login = () => {
         }
 
   return (
-
+<AppContainer>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -162,7 +170,12 @@ const Login = () => {
                 
               </Grid>
             </Grid>
-            <div id="signInDiv"></div>
+            <div 
+              onClick={res => {
+                console.log(res)
+                google(res.data)
+              }}
+              id="signInDiv"></div>
           </Box>
         </Box>
 
@@ -170,7 +183,7 @@ const Login = () => {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-
+    </AppContainer>
       )
   }
 

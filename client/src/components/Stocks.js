@@ -6,7 +6,7 @@ import CardParent  from '../styled_components/CardParent.style'
 
 const Stocks = () => {
 
-    const{stock, setStock} = useContext(UserContext)
+    const{stock, setStock, investor} = useContext(UserContext)
 
     useEffect(() => {
         fetch('/stocks')
@@ -21,10 +21,10 @@ const Stocks = () => {
             singleStock={singleStock}
         />
         ))
+// console.log(investor.stocks)
 
   return (
     <CardParent>    
-
         {mappedStocks}    
     </CardParent>
   )

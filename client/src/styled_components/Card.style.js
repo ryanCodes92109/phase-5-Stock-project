@@ -6,8 +6,8 @@ const theme = createTheme();
 theme.spacing(2);
 
  const StyledCard = styled.div`
-    /* border:5px solid black; */
-  display: flex;
+     border:5px solid black; 
+   display: flex;
   flex-direction:column;
   border-radius: 1rem;
   padding: 0.5rem 0;
@@ -17,11 +17,11 @@ theme.spacing(2);
   background: white;
   color: black;
   align-items: center;
-  background-color: lightgrey;
-  
-  /* border-radius: 1; */
-  /* box-shadow: 3px 3px blue, -1em 0 .4em chocolate;  
-  border: 2px solid white; */
+  background-color: lightgrey; 
+
+   border-radius: 1; 
+   box-shadow: 1vw 1vh black;
+  border: 2px solid white; 
 `
 
 export default StyledCard

@@ -12,8 +12,6 @@ const PortfolioStockCard = ({stock_name}) => {
         setInvestor
         } = useContext(UserContext)
 
-        
-
   const mappedPorfolioStockId = stock_name.map(id => id)
   parseInt(mappedPorfolioStockId)
 
@@ -30,24 +28,20 @@ const PortfolioStockCard = ({stock_name}) => {
           ...investor, 
           portfolio_stocks: updatedPortfolioStocks
         }
-
         setInvestor(updatedInvestor)
-
       } else {
-
         console.log('hitting the error')
-        
       }
     })
   }
-console.log(investor.portfolio_stocks)
 
-
-  const mappedStocks = investor.portfolio_stocks.map(stock => (
+console.log(investor)
+  const mappedStocks = stock_name.map(stock => (
+    // console.log(stock)
     <StyledCard
       key={stock.id}
       >
-        {stock.id}<br/>
+        {/* {stock.id}<br/> */}
         {stock.name} <br/>
         {stock.price}<br/>
         {stock.quantity}
@@ -55,7 +49,9 @@ console.log(investor.portfolio_stocks)
           onClick={()=>destroyPortfolioStockRequest(stock)}
         >Remove from Portfolio
         </Button>
-    </StyledCard>))
+    </StyledCard>
+    )
+    )
 
   return (
     <CardParent>
