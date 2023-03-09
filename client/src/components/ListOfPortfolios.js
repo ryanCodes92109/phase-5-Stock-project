@@ -9,21 +9,22 @@ import Button from '../styled_components/Button.style'
 import SubmitField from '../styled_components/TextField.style'
 import PortfolioSubmitForm from '../styled_components/PortfolioSubmitForm.sty'
 
+
 const ListOfPortfolios = ({portfolios}) => {
   const navigate=useNavigate()
+
+  
   const {investor,
           setInvestor
         } =useContext(UserContext)
 
-        const newPortfolioFormData = {
+        console.log(investor)
+
+        const [portfolioSubmit, setPortfolioSubmit] = useState({
           portfolio_name: ''
-        }
+        })
 
-        const [portfolioSubmit, setPortfolioSubmit] = useState(newPortfolioFormData)
-
-        // console.log(portfolios)
-
-  const newPortfolioSubmit = (e, portfolioFormData) => {
+  const newPortfolioSubmit = (e, portfolioSubmit) => {
     // console.log('hello')
     e.preventDefault()
     fetch('/portfolios', {
@@ -31,7 +32,7 @@ const ListOfPortfolios = ({portfolios}) => {
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(portfolioFormData)
+          body: JSON.stringify(portfolioSubmit)
         })
         .then(res => {
               if(res.status !== 201) {
@@ -44,11 +45,16 @@ const ListOfPortfolios = ({portfolios}) => {
                     portfolios: [...investor.portfolios, data]
                   }
                   setInvestor(updatedInvestor)
-                } 
-              )
+                })
               }
             })
-  }
+            setPortfolioSubmit({
+              portfolio_name:''
+            })
+
+            // setInvestor(newPortfolioFormData)
+
+          }
   // console.log(portfolios)
 
   const newPortfolioHandleChange = e => {
@@ -96,24 +102,24 @@ const ListOfPortfolios = ({portfolios}) => {
   ) 
 
   return (
-    // <>
-      <CardParent >
+    
+     <CardParent >
       <PortfolioSubmitForm 
         onSubmit={e => newPortfolioSubmit(e, portfolioSubmit)}>
           <SubmitField 
             onChange={newPortfolioHandleChange}
-            placeholder='New Portfolio Name'
+            placeholder='Start Typing Your New Portfolio Name Here and Press Enter'
             name='portfolio_name'
-            value= {portfolios.portfolio_name}
-          ></SubmitField>
-        <Button>Submit</Button>
-
+            value= {portfolioSubmit.portfolio_name}
+          >
+          </SubmitField>
+          {/* <Button>Submit</Button> */}
       </PortfolioSubmitForm>
 
         {mappedPortfolioNames }
 
       </CardParent>
-    // </>
+
   )
 }
 

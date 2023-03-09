@@ -11,9 +11,34 @@ const UserProvider = ({children}) => {
     const [favorite, setFavorite] = useState([])
 
     // user state for auth
-    const [investor, setInvestor] = useState(null)
-    // const [toggleAuth, setToggleAuth] = useState(false)
     
+    const [investor, setInvestor] = useState(null)
+    
+
+    // const [toggleAuth, setToggleAuth] = useState(false)
+    // const handleAddToPortfolio = ( newPortfolioStock) => {
+    //   fetch('/portfolio_stocks', {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(newPortfolioStock)
+    //   })
+    //     .then(res => {
+    //       if (res.status !== 201) {
+    //         console.log('not adding to portfolio_stocks')
+    //       } else {
+    //         res.json()
+    //         .then(data => {
+    //           const updatedPortfolioStock = {
+    //             ...investor,
+    //             portfolio_stocks: [...investor.portfolio_stocks, data]
+    //           }
+    //           setInvestor(updatedPortfolioStock);
+    //         })
+    //       }
+    //     });
+    // }
     const handleAddToPortfolio = (newPortfolioStockState) => {
         
       fetch('/portfolio_stocks', {
@@ -37,6 +62,7 @@ const UserProvider = ({children}) => {
           }
         });
     }
+
     
     const fetchAuthorizedUser = () => {
        fetch('/authorized_investor')
@@ -77,7 +103,7 @@ const UserProvider = ({children}) => {
     .then(data => setFavorite(data))
   }, [])
 
-  // console.log(investor)
+ 
 
   return (
     <div>

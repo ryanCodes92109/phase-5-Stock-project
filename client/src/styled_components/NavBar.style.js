@@ -8,7 +8,7 @@ export const NavBarContainer= styled.nav`
     width:100vw;
     background-color:lightgrey;
     margin:auto;
-    /* border:5px solid black; */
+    border:5px solid black;
     gap:1vw;
     justify-content: flex-end;
     

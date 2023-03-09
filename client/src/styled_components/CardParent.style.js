@@ -3,8 +3,8 @@ import styled from "styled-components";
  const CardParent = styled.div`
     display:flex;
     background-color:darkslategrey;
-    height:80rem;
-    width:80rem; 
+    height:80vh;
+    width:80vw; 
     margin:auto;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -12,7 +12,8 @@ import styled from "styled-components";
     position:relative;
     top:11vh;
     border-radius: 1rem;
-    border:1px solid red;
+    /* border:1px solid red; */
+    overflow:scroll;
 `
 
 export default CardParent
