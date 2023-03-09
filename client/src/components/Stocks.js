@@ -2,11 +2,19 @@
 import React, { useContext, useEffect, useState } from 'react'
 import StockCard from './StockCard'
 import { UserContext } from '../context/UserContext'
-import CardParent  from '../styled_components/CardParent.style' 
+import CardParent  from '../styled_components/CardParent.style'
+import Login from './Login' 
+import Signup from './Signup'
 
 const Stocks = () => {
 
-    const{stock, setStock, investor} = useContext(UserContext)
+    const {
+          stock, 
+          setStock, 
+          investor,
+          toggleAuth,
+          setToggleAuth
+        } = useContext(UserContext)
 
     useEffect(() => {
         fetch('/stocks')
@@ -22,7 +30,10 @@ const Stocks = () => {
         />
         ))
 // console.log(investor.stocks)
-
+if(!investor) {
+  return (
+      toggleAuth && <Login setToggleAuth={setToggleAuth} />) || ( <Signup setToggleAuth={setToggleAuth} />)
+}
   return (
     <CardParent>    
         {mappedStocks}    

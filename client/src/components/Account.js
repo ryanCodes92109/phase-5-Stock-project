@@ -50,7 +50,7 @@ const Account = () => {
             console.log(res.json())
         })
         .then(setInvestor(patchFormValues))
-            setPatchFormValues(patchFormValues)
+            // setPatchFormValues(patchFormValues)
         }
 
     if(!investor) {
@@ -97,14 +97,13 @@ const Account = () => {
           backgroundColor='lightgrey'
           width='35vw'
           sx={{
-            
             marginTop: 16,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-        
+
           <Box 
             component="form" 
             noValidate 
@@ -115,7 +114,7 @@ const Account = () => {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  onChange = {accountPatchFormChange}                 
+                  onChange = {accountPatchFormChange}          
                   name="first_name"
                   value={patchFormValues.first_name}
                   required

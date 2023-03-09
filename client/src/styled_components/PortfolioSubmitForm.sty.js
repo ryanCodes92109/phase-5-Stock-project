@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-const PortfolioSubmitForm = styled.form`
+const SubmitForm = styled.form`
 width:100vw;
 height:7vh;
 display:flex;
 justify-content:center;
-textAlign:center;
+text-align:center;
+flex-direction: column;
 `
 
-export default PortfolioSubmitForm
+export default SubmitForm

@@ -1,17 +1,15 @@
-
-
-
 import React, {useContext, useState} from 'react'
 import { UserContext } from '../context/UserContext'
 import StyledCard from '../styled_components/Card.style'
 import CardParent from '../styled_components/CardParent.style'
 import Button from '../styled_components/Button.style'
 import { TextField } from '@mui/material'
+import SubmitForm from '../styled_components/PortfolioSubmitForm.sty'
 
 const PortfolioStockCard = ({stock_name}) => {
   // console.log(stock_name)
   const [portfolioStockPatchOnchange, setPortfolioStockPatchOnchange] = useState({
-
+      quantity: 0
   })
 
   const {
@@ -43,11 +41,11 @@ const PortfolioStockCard = ({stock_name}) => {
     })
   }
 
-console.log(investor)
-  const patchOnchange =e => {
-    const [name, value] = e.target
+// console.log(investor)
+  const patchOnchange = e => {
+    const {name, value} = e.target;
     setPortfolioStockPatchOnchange((oldValues) => ({ ...oldValues, [name]: value }))
-    // console.log(e.target)
+    console.log(e.target.value)
   }
 
   const patchPortfolioStockQuantity = ps => {
@@ -56,11 +54,10 @@ console.log(investor)
     fetch(`/portfolio_stocks/${ps.id}`, {
       method: 'PATCH'
     })
-    .then(res => {
-      if(res.status === 200) {
-
-      }
-    })
+    .then(res => console.log(res.json()))
+    .then(setInvestor(portfolioStockPatchOnchange)  
+    )
+    
   }
 
   const mappedStocks = stock_name.map(stock => (
@@ -68,23 +65,33 @@ console.log(investor)
     <StyledCard
       key={stock.id}
       >
-        {/* {stock.id}<br/> */}
         {stock.name} <br/>
         {stock.price}<br/>
         {stock.quantity}
+      <SubmitForm 
+        onSubmit={e => patchPortfolioStockQuantity(e, portfolioStockPatchOnchange)}>
         <TextField 
           onChange={patchOnchange}
           placeholder ={stock.quantity} />
+          <Button
+            // onClick ={patchPortfolioStockQuantity}        
+          >Update Quantity
+          </Button>
+
         <Button
           onClick={()=>destroyPortfolioStockRequest(stock)}
         >Remove from Portfolio
         </Button>
+
+        </SubmitForm>
     </StyledCard>
     )
     )
   return (
     <CardParent>
-      {mappedStocks}
+    
+        {mappedStocks}
+     
     </CardParent>
   )
 }

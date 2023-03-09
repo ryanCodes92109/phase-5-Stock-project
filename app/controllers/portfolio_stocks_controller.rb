@@ -17,6 +17,10 @@ class PortfolioStocksController < ApplicationController
         head :no_content
     end
 
+    def update 
+
+    end
+
     private
     def find_portfolio_stocks
         @search_portfolio_stocks = PortfolioStock.find(params[:id])
