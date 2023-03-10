@@ -3,9 +3,8 @@ import { UserContext } from '../context/UserContext';
 import Button from '../styled_components/Button.style'
 import StyledCard from '../styled_components/Card.style'
 
-const StockCard = ({
-  singleStock
-}) => {
+const StockCard = ({singleStock}) => {
+  
   const {
     investor, 
     handleAddToPortfolio
@@ -15,9 +14,11 @@ const StockCard = ({
 
         const [newPortfolioStockState, setNewPortfolioStockState] = useState({
           portfolio_id: 0,
-          stock_id: singleStock.id
-          // ,quantity: 0
+          stock_id: singleStock.id,
+          quantity: 0
         })
+
+      
         // console.log(newPortfolioStockState)
 
       
@@ -27,6 +28,8 @@ const StockCard = ({
       value={portfolioName.id}
     >{portfolioName.portfolio_name}</option>) 
     )
+
+
 
 const handleStockChange = e => {
       // console.log(e.target.value)

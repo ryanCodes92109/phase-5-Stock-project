@@ -10,6 +10,7 @@ class FavoritesController < ApplicationController
     end
 
     def destroy 
+        # byebug
         @favorite.destroy
         head :no_content
     end

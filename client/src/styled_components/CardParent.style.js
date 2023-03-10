@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
  const CardParent = styled.div`
-    display:flex;
+    display:flex; 
     background-color:darkslategrey;
     height:80vh;
     width:80vw; 
@@ -11,9 +11,9 @@ import styled from "styled-components";
     overflow: scroll;
     position:relative;
     top:11vh;
-    border-radius: 1rem;
-    /* border:1px solid red; */
-    overflow:scroll;
+    border-radius: 1rem;  
+    /* border:1px solid red; 
+    /* overflow:scroll;*/
 `
 
 export default CardParent

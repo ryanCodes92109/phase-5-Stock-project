@@ -28,10 +28,6 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
         setStock
         } = useContext(UserContext)
 
-  // const mappedPorfolioStockId = stockName.map(id => id)
-  // parseInt(mappedPorfolioStockId)
-
-
   const destroyPortfolioStockRequest = p => {
     fetch(`/portfolio_stocks/${p.id}`, {
       method: "DELETE"
@@ -62,58 +58,74 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
     // console.log(e.target.value)
   }
 
-  const patchPortfolioStockQuantity = ps => {
-    console.log(ps.target.value)
+  // const patchPortfolioStockQuantity = ps => {
+  //   console.log(ps.target.value)
 
-    fetch(`/portfolio_stocks/${ps.id}`, {
-      method: 'PATCH'
+  //   fetch(`/portfolio_stocks/${ps.id}`, {
+  //     method: 'PATCH'
+  //   })
+  //   .then(res => {
+  //     if(res.status === 200) {
+  //       console.log(res.json())
+  //     }
+  //   })
+  //   .then(setInvestor(portfolioStockPatchOnchange)  
+  //   )
+  // }
+
+  // const [quantityPatchState, setQuantityPatchState] = useState([])
+console.log(investor.portfolio_stocks)
+  const quantityPatch = p => {
+    p.preventDefault()
+    fetch(`/portfolio_stocks/${stockName.id}`, {
+      method:"PATCH", 
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(portfolioStockPatchOnchange)
     })
     .then(res => {
-      if(res.status === 200) {
-        console.log(res.json())
+      if (res.status === 200) {
+        res.json()
+        .then(data => {
+          setInvestor(data)
+        })
+
       }
     })
-    .then(setInvestor(portfolioStockPatchOnchange)  
-    )
-  }
+  }    
 
-    
-    
-    // debugger
   return (
     <CardParent>
-    
-
+  
     <StyledCard
       key={stockName.id}
       >
         Stock ID {stockName.id} <br/>
         {stockName.name} <br/>
-        {stockName.price}
+        {stockName.price}<br/>
+        {stockName.quantity}
         
         {/* {stock.quantity} */}
       <SubmitForm 
-        onSubmit={e => patchPortfolioStockQuantity(e, portfolioStockPatchOnchange)}>
+        onSubmit={quantityPatch}
+        // onSubmit={e => quantityPatch(e, portfolioStockPatchOnchange)}
+        >
        <div
         name='stock_id'
-        value={portfolioStockPatchOnchange.stock_id}
+        value={stockName.stock_id}
         // onChange={patchOnchange}
        ></div>
-<>
+
        <CardInput 
           onChange={patchOnchange}
           name='quantity'
-          value = {portfolioStockPatchOnchange.quantity}
+          value = {stockName.quantity}
           placeholder ={stockName.quantity} />
-          
-{/*        
-          <Button
-            onClick ={() => patchPortfolioStockQuantity()}        
-          >Update Quantity
-          </Button> */}
 
 
-        </>
+        <Button type="submit">Update Quantity</Button>
+        
 
         </SubmitForm>
         <Button
@@ -212,24 +224,24 @@ export default PortfolioStockCard
 //     })
 //   }
 
-//   const mappedStocks = stock_name.map(p => (
+  // const mappedStocks = stock_name.map(p => (
 
-//     <StyledCard
-//       key={p.id}
-//       >
-//         {p.name} <br/>
-//         {p.price}<br/>
-//         <TextField 
-//           onChange={patchOnchange}
-//           // placeholder ={stock.quantity} 
-//           />
-//         <Button
-//           onClick={()=>destroyPortfolioStockRequest(p)}
-//         >Remove from Portfolio
-//         </Button>
-//     </StyledCard>
-//     )
-//     )
+  //   <StyledCard
+  //     key={p.id}
+  //     >
+  //       {p.name} <br/>
+  //       {p.price}<br/>
+  //       <TextField 
+  //         onChange={patchOnchange}
+  //         // placeholder ={stock.quantity} 
+  //         />
+  //       <Button
+  //         onClick={()=>destroyPortfolioStockRequest(p)}
+  //       >Remove from Portfolio
+  //       </Button>
+  //   </StyledCard>
+  //   )
+  //   )
 
 //   return (
 //     <CardParent>
