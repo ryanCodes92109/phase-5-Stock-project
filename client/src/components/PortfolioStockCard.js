@@ -11,11 +11,9 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
     setInvestor
     } = useContext(UserContext)
 
-  const portfolioStockMap = investor.favorites.map(stock => stock)
-
   const [portfolioStockPatchOnchange, setPortfolioStockPatchOnchange] = useState({
-      id: 0,
-      quantity:0
+      id: stockName.id,
+      quantity:stockName.quantity
   })
 
   const destroyPortfolioStockRequest = p => {
@@ -41,9 +39,9 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
   const patchOnchange = (e) => {
     const {name, value} = e.target;
     setPortfolioStockPatchOnchange((oldValues) => ({ ...oldValues, [name]: value }))
-    console.log(e.target.value)
+    // setPortfolioStockPatchOnchange((oldValues) => ({ ...oldValues, [name]: value }))
+    // console.log(e.target.value)
   }
-
   const quantityPatch = p => {
     p.preventDefault()
     fetch(`/portfolio_stocks/${stockName.id}`, {
@@ -54,11 +52,19 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
       body: JSON.stringify(portfolioStockPatchOnchange)
     })
     .then(res => {
-      if (res.status === 200) {
+      if (res.status === 202) {
         res.json()
         .then(data => {
-          setInvestor(data)
+          const updatedQuantity = {
+            ...investor, 
+            data
+          }
+          setInvestor(updatedQuantity
+            // current => current.portfolio_stocks.map(ps => ps.quantity )
+            )
         })
+      } else {
+        console.log('Quantity did not update')
       }
     })
   }    
@@ -73,12 +79,12 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
         {stockName.quantity}
 
    <SubmitForm 
-      onSubmit={quantityPatch} >
+      onSubmit={(p) => quantityPatch(p)} >
         <CardInput 
           onChange={patchOnchange}
           name='quantity'
-          value = {stockName.quantity}
-          placeholder ={stockName.quantity} />
+          value = {portfolioStockPatchOnchange.quantity}
+          />
         <Button type="submit">Update Quantity</Button>
         </SubmitForm>
 

@@ -3,6 +3,7 @@ class PortfolioStock < ApplicationRecord
   belongs_to :stock
 
 
+
   def name
     stock.name
   end

@@ -1,5 +1,5 @@
 class PortfolioSerializer < ActiveModel::Serializer
-  attributes :id, :stock_name, :portfolio_name#, :quantity
+  attributes :id, :stock_name, :portfolio_name, :quantity
   has_many :portfolio_stocks
 
   def stock_name
