@@ -53,7 +53,6 @@ const Login = () => {
         })
 
     const {
-        
         setInvestor
         } = useContext(UserContext)
 

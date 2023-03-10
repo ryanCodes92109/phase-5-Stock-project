@@ -26,8 +26,10 @@ class InvestorsController < ApplicationController
     end
 
     def oauth
+        # byebug
         user = Investor.find_or_create_by(email:params[:email]) do |u|
-            u.name = params[:name]
+            u.first_name = params[:given_name]
+            u.last_name = params[:family_name]
             u.email = params[:email]
             u.password = SecureRandom.hex(16)
         end
