@@ -18,7 +18,10 @@ class PortfolioStocksController < ApplicationController
     end
 
     def update 
-
+        # byebug
+        updatedPortfolioStock = PortfolioStock.find(params[:id])
+        updatedPortfolioStock.update!(portfolio_params)
+        render json: updatedPortfolioStock, status: :accepted
     end
 
     private
@@ -27,6 +30,6 @@ class PortfolioStocksController < ApplicationController
     end
 
     def portfolio_params
-        params.permit(:portfolio_id, :stock_id)
+        params.permit(:portfolio_id, :stock_id, :quantity)
     end
 end

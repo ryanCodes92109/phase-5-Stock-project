@@ -11,10 +11,10 @@ const PortfolioOfStock = ({portfolios}) => {
   const navigate = useNavigate()
   const portfolioId = parseInt(params.id)
 
-  const filteredPortfolios= portfolios.filter(p  => p.id === portfolioId)
-console.log(filteredPortfolios)
-
-  const mappedPortfolioStocks = filteredPortfolios.map(portfolio => <PortfolioStockCard  key={portfolio.id} {...portfolio} />)
+  const singlePortfolio= portfolios.find(p  => p.id === portfolioId)
+console.log(singlePortfolio)
+// debugger
+  const mappedPortfolioStocks = singlePortfolio?.stock_name.map(portfolioStock => <PortfolioStockCard  key={portfolioStock.id} stockName={portfolioStock} singlePortfolio={singlePortfolio}/>)
 
 
   return (

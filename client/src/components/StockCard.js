@@ -21,7 +21,7 @@ const StockCard = ({
         // console.log(newPortfolioStockState)
 
       
-  const mappedPortfolioNames = investor.portfolio_info.map(portfolioName =>( 
+  const mappedPortfolioNames = investor.portfolios.map(portfolioName =>( 
     <option 
       key={portfolioName.id} 
       value={portfolioName.id}
@@ -57,7 +57,7 @@ const handleStockChange = e => {
           {mappedPortfolioNames}
       </select>
   
-      <Button onClick={() => handleAddToPortfolio(newPortfolioStockState)}> Add to Portfolio </Button>
+      <Button onClick={() => handleAddToPortfolio(newPortfolioStockState, newPortfolioStockState.portfolio_id)}> Add to Portfolio </Button>
     </StyledCard>
   )
 };
