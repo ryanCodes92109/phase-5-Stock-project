@@ -3,5 +3,5 @@ class Portfolio < ApplicationRecord
     has_many :portfolio_stocks, dependent: :destroy
     has_many :stocks, through: :portfolio_stocks
 
-
+    validates :portfolio_name, uniqueness: true
 end
