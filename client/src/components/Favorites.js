@@ -7,7 +7,7 @@ const Favorites = ({userFavorites}) => {
 
   const {investor, favorite} = useContext(UserContext)
 
-  console.log(userFavorites)
+  // console.log(userFavorites)
 
     const mappedFavorites = userFavorites.map(singleFavorite => (
         <FavoriteCard 

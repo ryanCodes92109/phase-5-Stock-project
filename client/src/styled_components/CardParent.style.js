@@ -9,11 +9,11 @@ import styled from "styled-components";
     justify-content: space-around;
     flex-wrap: wrap;
     overflow: scroll;
-    position:relative;
-    top:11vh;
+    position:absolute;
+    top:11.5vh;
+    left:10vw;
     border-radius: 1rem;  
-    /* border:1px solid red; 
-    /* overflow:scroll;*/
+
 `
 
 export default CardParent
