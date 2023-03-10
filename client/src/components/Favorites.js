@@ -17,6 +17,7 @@ const Favorites = ({userFavorites}) => {
           stockId={singleFavorite.id}
           />
       )
+      
     )
 
   return (

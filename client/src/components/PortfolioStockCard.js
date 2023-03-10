@@ -1,31 +1,22 @@
-
-
-
-
-
-
-
-
 import React, {useContext, useState} from 'react'
 import { UserContext } from '../context/UserContext'
 import StyledCard from '../styled_components/Card.style'
-import CardParent from '../styled_components/CardParent.style'
 import Button from '../styled_components/Button.style'
-import { TextField } from '@mui/material'
 import SubmitForm from '../styled_components/PortfolioSubmitForm.sty'
 import CardInput from '../styled_components/CardInput.style'
 
 const PortfolioStockCard = ({stockName, singlePortfolio}) => {
-  // console.log(stock_name)
+  const {
+    investor, 
+    setInvestor
+    } = useContext(UserContext)
+
+  const portfolioStockMap = investor.favorites.map(stock => stock)
+
   const [portfolioStockPatchOnchange, setPortfolioStockPatchOnchange] = useState({
       id: 0,
-      quantity: 0
+      quantity:0
   })
-
-  const {
-        investor, 
-        setInvestor
-        } = useContext(UserContext)
 
   const destroyPortfolioStockRequest = p => {
     fetch(`/portfolio_stocks/${p.id}`, {
@@ -40,7 +31,6 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
           ...investor,
           portfolios: updatedPortfolios
         }
-        // debugger
         setInvestor(updatedInvestor)
       } else {
         console.log('hitting the error')
@@ -48,16 +38,12 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
     })
   }
 
-
-
-// console.log(investor)
-  const patchOnchange = e => {
+  const patchOnchange = (e) => {
     const {name, value} = e.target;
     setPortfolioStockPatchOnchange((oldValues) => ({ ...oldValues, [name]: value }))
-    // console.log(e.target.value)
+    console.log(e.target.value)
   }
 
-console.log(investor.portfolio_stocks)
   const quantityPatch = p => {
     p.preventDefault()
     fetch(`/portfolio_stocks/${stockName.id}`, {
@@ -77,7 +63,6 @@ console.log(investor.portfolio_stocks)
     })
   }    
   
-
   return (
 
     <StyledCard
@@ -89,7 +74,6 @@ console.log(investor.portfolio_stocks)
 
    <SubmitForm 
       onSubmit={quantityPatch} >
-        
         <CardInput 
           onChange={patchOnchange}
           name='quantity'

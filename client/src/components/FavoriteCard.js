@@ -8,7 +8,6 @@ import Button from '../styled_components/Button.style'
 const FavoriteCard = ({stockName, stockPrice, stockId}) => {
   const {investor, setInvestor} = useContext(UserContext)
 
-console.log(stockId)
   const deleteFromFavoritesList = e => {
     console.log('click')
     fetch(`/favorites/${stockId}`, {
@@ -19,7 +18,7 @@ console.log(stockId)
 
         const newInvestor = {
           ...investor,
-          favorites: investor.favorites.filter(id => id !== stockId)
+          favorites: investor.favorites.filter(id => id.id !== stockId)
         }
         setInvestor(newInvestor)
       }
