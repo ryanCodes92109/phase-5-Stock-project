@@ -6,14 +6,15 @@ const theme = createTheme();
 theme.spacing(2);
 
  const StyledCard = styled.div`
-     border:5px solid black; 
-   display: flex;
+  border:5px solid black; 
+  display: flex;
   flex-direction:column;
   border-radius: 1rem;
   padding: 0.5rem 0;
   margin: 4vh 3vw;
-  width: 11rem;
-  height:8rem;
+  min-width: 15vw;
+  max-width: 15vw;
+  height:10rem;
   background: white;
   color: black;
   align-items: center;

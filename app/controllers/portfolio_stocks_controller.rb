@@ -1,5 +1,5 @@
 class PortfolioStocksController < ApplicationController
-    before_action :find_portfolio_stocks, only: [:destroy]
+    before_action :find_portfolio_stocks, only: [:update, :destroy]
 
     def index 
         render json: PortfolioStock.all
@@ -19,9 +19,9 @@ class PortfolioStocksController < ApplicationController
 
     def update 
         # byebug
-        updatedPortfolioStock = PortfolioStock.find(params[:id])
-        updatedPortfolioStock.update!(portfolio_params)
-        render json: updatedPortfolioStock, status: :accepted
+        # updatedPortfolioStock = PortfolioStock.find(params[:id])
+        @search_portfolio_stocks.update!(portfolio_params)
+        render json: @search_portfolio_stocks, status: :accepted
     end
 
     private

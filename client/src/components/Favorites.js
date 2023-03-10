@@ -7,18 +7,17 @@ const Favorites = ({userFavorites}) => {
 
   const {investor, favorite} = useContext(UserContext)
 
-    
-    // fetchFavorites()
-
-    // console.log(favorite)
-    // console.log(userFavorites)
+  // console.log(userFavorites)
 
     const mappedFavorites = userFavorites.map(singleFavorite => (
         <FavoriteCard 
           key={singleFavorite.id}
           stockName={singleFavorite.stock_name}  
-          stockPrice={singleFavorite.stock_price}/>
+          stockPrice={singleFavorite.stock_price}
+          stockId={singleFavorite.id}
+          />
       )
+      
     )
 
   return (

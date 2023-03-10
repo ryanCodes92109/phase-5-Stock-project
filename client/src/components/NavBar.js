@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import NavLink from '../styled_components/Link.style'
 import { NavBarContainer } from '../styled_components/NavBar.style'
+import BackBtnDiv from '../styled_components/BackBTN.style'
 
 const NavBar = () => {
   const {setInvestor} = useContext(UserContext)
@@ -23,6 +24,7 @@ const NavBar = () => {
   return (
     <div className='navbarParent'>
       <NavBarContainer>
+
       <NavLink 
       to='/'>
           <li 

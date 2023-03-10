@@ -18,7 +18,7 @@ const ListOfPortfolios = ({portfolios}) => {
           setInvestor
         } =useContext(UserContext)
 
-        console.log(investor)
+        // console.log(investor)
 
         const [portfolioSubmit, setPortfolioSubmit] = useState({
           portfolio_name: ''

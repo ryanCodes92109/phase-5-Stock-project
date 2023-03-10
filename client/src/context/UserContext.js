@@ -1,10 +1,7 @@
 import React, {useEffect, useState, createContext} from 'react'
-import Login from '../components/Login'
-import {useNavigate} from 'react-router-dom'
 
 const UserContext = createContext()
 const UserProvider = ({children}) => {
-
 
     // state for mapping and all stocks
     const [stock, setStock] = useState([])
@@ -13,32 +10,7 @@ const UserProvider = ({children}) => {
     // user state for auth
     
     const [investor, setInvestor] = useState(null)
-    
-
-    // const [toggleAuth, setToggleAuth] = useState(false)
-    // const handleAddToPortfolio = ( newPortfolioStock) => {
-    //   fetch('/portfolio_stocks', {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(newPortfolioStock)
-    //   })
-    //     .then(res => {
-    //       if (res.status !== 201) {
-    //         console.log('not adding to portfolio_stocks')
-    //       } else {
-    //         res.json()
-    //         .then(data => {
-    //           const updatedPortfolioStock = {
-    //             ...investor,
-    //             portfolio_stocks: [...investor.portfolio_stocks, data]
-    //           }
-    //           setInvestor(updatedPortfolioStock);
-    //         })
-    //       }
-    //     });
-    // }
+   
     const handleAddToPortfolio = (newPortfolioStockState, portfolioId) => {
         
       fetch('/portfolio_stocks', {
