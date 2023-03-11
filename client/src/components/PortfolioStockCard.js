@@ -31,7 +31,7 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
         }
         setInvestor(updatedInvestor)
       } else {
-        console.log('hitting the error')
+        alert('hitting the error')
       }
     })
   }
@@ -39,8 +39,7 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
   const patchOnchange = (e) => {
     const {name, value} = e.target;
     setPortfolioStockPatchOnchange((oldValues) => ({ ...oldValues, [name]: value }))
-    // setPortfolioStockPatchOnchange((oldValues) => ({ ...oldValues, [name]: value }))
-    // console.log(e.target.value)
+
   }
   const quantityPatch = p => {
     p.preventDefault()
@@ -55,16 +54,18 @@ const PortfolioStockCard = ({stockName, singlePortfolio}) => {
       if (res.status === 202) {
         res.json()
         .then(data => {
-          const updatedQuantity = {
-            ...investor, 
-            data
-          }
-          setInvestor(updatedQuantity
-            // current => current.portfolio_stocks.map(ps => ps.quantity )
-            )
+          console.log(data)
+          setInvestor((currentUser) => {
+            const portfolio = currentUser.portfolios.find(portfolio => portfolio.id === data.portfolio.id )
+            const updatedPortfolio = {
+              ...portfolio,
+              stock_name: portfolio.stock_name.map(stock => stock.id === data.id ? {id: data.id, name: data.name, price:data.price, quantity: data.quantity} : stock)
+            }
+            return {...currentUser, portfolios: currentUser.portfolios.map(p => p.id === portfolio.id ? updatedPortfolio : p)}
+          })
         })
       } else {
-        console.log('Quantity did not update')
+        alert('Quantity')
       }
     })
   }    
