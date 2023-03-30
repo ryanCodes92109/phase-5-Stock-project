@@ -27,7 +27,7 @@ const Login = () => {
   const handleCallbackResponse = response => {
     console.log("Encoded JWT ID token: " + response.credential);
     var userObject = jwt_decode(response.credential);
-    console.log(userObject)
+    // console.log(userObject)
     if(userObject !== {}) {
       oauth(userObject, navigate)
     }
@@ -108,6 +108,7 @@ const Login = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            backgroundColor:'white'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>

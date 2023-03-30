@@ -48,8 +48,11 @@ const Account = () => {
         })
         .then (res => {
             console.log(res.json())
+            setInvestor(patchFormValues)
         })
-        .then(setInvestor(patchFormValues))
+        .then(() => {
+          setInvestor(patchFormValues)
+        })
             // setPatchFormValues(patchFormValues)
         }
 

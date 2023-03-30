@@ -15,6 +15,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { AppContainer } from '../styled_components/AppContainer.style';
 
 
 const Signup = ({setToggleAuth}) => {
@@ -74,7 +75,7 @@ const Signup = ({setToggleAuth}) => {
   const theme = createTheme();
 
   return (
-
+    <AppContainer>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -84,6 +85,7 @@ const Signup = ({setToggleAuth}) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            backgroundColor:'white'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -170,7 +172,7 @@ const Signup = ({setToggleAuth}) => {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
-
+    </AppContainer>
   )
 }
 
