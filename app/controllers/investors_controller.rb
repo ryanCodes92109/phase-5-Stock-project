@@ -43,7 +43,7 @@ class InvestorsController < ApplicationController
 
     private
     def investor_params
-        params.permit(:first_name, :last_name, :email, :password)
+        params.permit(:id, :first_name, :last_name, :email, :password)
     end
 
     def find_investor
