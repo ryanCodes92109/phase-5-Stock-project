@@ -7,6 +7,8 @@ import {Link} from 'react-router-dom'
     align-self:center;
     background-color: darkslategray;
     color:lightgrey;
+    position:relative;
+    right:1rem;
 `
 
 export default NavLink
