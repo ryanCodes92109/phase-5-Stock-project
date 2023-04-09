@@ -81,7 +81,7 @@ const ListOfPortfolios = ({portfolios}) => {
       }
     })
   }
-  console.log(investor)
+  // console.log(investor)
 
   const mappedPortfolioNames = portfolios.map( p => (
     <StyledCard 
@@ -100,7 +100,7 @@ const ListOfPortfolios = ({portfolios}) => {
 
     )
   ) 
-
+console.log(mappedPortfolioNames)
   return (
     
      <CardParent >

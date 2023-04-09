@@ -4,6 +4,8 @@ import { UserContext } from '../context/UserContext'
 import NavLink from '../styled_components/Link.style'
 import { NavBarContainer } from '../styled_components/NavBar.style'
 import BackBtnDiv from '../styled_components/BackBTN.style'
+import { AiOutlineStock } from 'react-icons/ai';
+
 
 const NavBar = () => {
   const {setInvestor} = useContext(UserContext)
@@ -24,7 +26,8 @@ const NavBar = () => {
   return (
     <div className='navbarParent'>
       <NavBarContainer>
-
+      <AiOutlineStock className = 'logo' size={50}/>
+      <span className='appName'>Stock Tracker</span>
       <NavLink 
       to='/'>
           <li 
