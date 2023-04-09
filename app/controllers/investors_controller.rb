@@ -1,5 +1,5 @@
 class InvestorsController < ApplicationController
-    before_action :find_investor, only: [:show, :destroy, :update]
+    # before_action :find_investor, only: [:show, :destroy, :update]
     skip_before_action :authorized_investor, only: [:create, :oauth]
 
     def index 

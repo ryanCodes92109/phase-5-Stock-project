@@ -7,9 +7,11 @@ export const NavBarContainer= styled.nav`
     min-height:5rem;
     width:100vw;
     background-color:lightgrey;
+    // opacity:.5;
     margin:auto;
-    border:5px solid black;
+    // border:5px solid black;
     gap:1vw;
     justify-content: flex-end;
     flex-shrink: 0;
+    z-index:100;
     `

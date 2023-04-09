@@ -94,7 +94,6 @@ const Account = () => {
 
 <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           position="fixed"
           backgroundColor='lightgrey'
@@ -154,64 +153,25 @@ const Account = () => {
               </Grid>
       
             </Grid>
+
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Update Your Information
-            </Button>
+              Update Your Information</Button>
+            
             <Button
-                onClick = {investorDelete}  
-            >Delete User
-
-            </Button>
+              onClick = {investorDelete}  
+            >Delete User</Button>
        
           </Box>
         </Box>
-        {/* <Copyright 
-          display='fixed'
-          sx={{ mt: 5 }} /> */}
+    
       </Container>
     </ThemeProvider>
 
-
-    // <div className='changeAccountInfoParent'>
-    //   <form onSubmit={accountSubmitForm}>
-
-    //     <input
-    //         placeholder='First Name'
-    //         name='first_name'
-    //         value={patchFormValues.first_name}
-    //         onChange = {accountPatchFormChange}
-    //         />
-    //     <input 
-    //         placeholder='Last Name'
-    //         name='last_name'
-    //         value={patchFormValues.last_name}
-    //         onChange = {accountPatchFormChange}
-
-    //         />
-    //     <input 
-    //         placeholder='Email'
-    //         name='email'
-    //         value={patchFormValues.email}
-    //         onChange = {accountPatchFormChange}
-    //         />
-                
-    //         <br/>
-    //         <button
-    //             className='changeAccountInfoButton'
-    //             type='submit'
-    //         >Update</button>
-            
-    //         <button
-    //             className='changeAccountInfoButton' 
-    //             onClick = {investorDelete}
-    //         >Delete Account</button>
-    //   </form>
-    // </div>
   )
 }
 

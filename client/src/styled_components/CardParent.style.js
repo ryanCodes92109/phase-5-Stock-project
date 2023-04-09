@@ -2,7 +2,7 @@ import styled from "styled-components";
 
  const CardParent = styled.div`
     display:flex; 
-    background-color:darkslategrey;
+    // background-color:darkslategrey;
     height:80vh;
     width:80vw; 
     margin:auto;
